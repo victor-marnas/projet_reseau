@@ -1,0 +1,46 @@
+static const uint8_t delay_polling = 20;
+
+void Tache_TE ( void )
+{
+	while(1)
+	{
+		for( type = 0 ; type < 3 ; type++ )
+			CPT_Type_Manquante[ type ] = 3;
+		
+		CPT_Piece_Prise = 0;
+		
+		do{
+			Avance_Te();
+			
+			Lire( S0 );
+			Lire( S1 );
+			
+			while( !S0 && !S1 )
+			{
+				Attend_ms( delay_polling );
+				Lire( S0 );
+				Lire( S1 );
+			}
+			
+			type = S0 & ( S1 << 1 );
+			
+			if ( CPT_Type_Manquante[ type ] != 0 )
+			{
+				CPT_Type_Manquante[ type ]--;
+				
+				Lire( S2 );
+				while( !S2 )
+				{
+					Attend_ms( delay_polling );
+					Lire( S2 );
+				}
+				
+				Arrete_Te();
+				Piece_dispo( type );
+				Attend Piece Prise;
+				MA0 Piece Prise;
+				CPT_Piece_Prise++;
+			}
+		}while( CPT_Piece_Prise != 9 )
+	}
+}
