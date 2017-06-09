@@ -9,8 +9,6 @@ void vTaskTapisSortie( void *pvParameters )
 
   uint8_t presencePalette = 0;
 
-  sensor_t dummy;
-
   while( 1 )
   {
       DeplacerTapisSortie( 1 );
@@ -18,21 +16,21 @@ void vTaskTapisSortie( void *pvParameters )
       sensorPalette.value = 1;
       xQueueSendToFront( q_newSubscriptions , &sensorPalette , portMAX_DELAY );
 
-      xQueueReceive( q_sensorsTapisSortie , ( void * const )&dummy , portMAX_DELAY );
+      xQueueReceive( q_sensorsTapisSortie , ( void * const )NULL , portMAX_DELAY );
 
       DeplacerTapisSortie( 0 );
 
       presencePalette = 1;
       xQueueSendToFront( q_caisseArrivee , &presencePalette , portMAX_DELAY );
 
-      xQueueReceive( q_caissePleine , ( void * const )&dummy , portMAX_DELAY );
+      xQueueReceive( q_caissePleine , ( void * const )NULL , portMAX_DELAY );
 
       DeplacerTapisSortie( 1 );
 
       sensorPalette.value = 0;
       xQueueSendToFront( q_newSubscriptions , &sensorPalette , portMAX_DELAY );
 
-      xQueueReceive( q_sensorsTapisSortie , ( void * const )&dummy , portMAX_DELAY );
+      xQueueReceive( q_sensorsTapisSortie , ( void * const )NULL , portMAX_DELAY );
   }
 }
 

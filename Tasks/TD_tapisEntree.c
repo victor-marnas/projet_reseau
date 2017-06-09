@@ -9,9 +9,8 @@ void vTaskTapisEntree( void *pvParameters )
   uint8_t t_cpt_type_manquante[3];
   uint8_t cpt_pieces_prises = 0;
 
-  sensor_t firstSensorType;
-  sensor_t secondSensorType;
-  sensor_t dummy;
+  sensor_t sensorType0;
+  sensor_t sensorType1;
 
   uint8_t typePiece = 0;
 
@@ -25,7 +24,6 @@ void vTaskTapisEntree( void *pvParameters )
 
       while( cpt_pieces_prises != 9 )
       {
-    	  LCD_DisplayStringLine(24, (uint8_t*) "Avance tapis");
           DeplacerTapisEntree( 1 );
 
           sensorToSubscribe.sensor = SENSOR_TYPE_S0;
@@ -35,17 +33,12 @@ void vTaskTapisEntree( void *pvParameters )
           sensorToSubscribe.sensor = SENSOR_TYPE_S1;
           xQueueSendToFront( q_newSubscriptions , ( void * const )&sensorToSubscribe , portMAX_DELAY );
 
-          firstSensorType.value = 0;
-          secondSensorType.value = 0;
+          sensorType0.value = 0;
+          sensorType1.value = 0;
+          xQueueReceive( q_sensorsTapisEntree , &sensorType0 , portMAX_DELAY );
+          xQueueReceive( q_sensorsTapisEntree , &sensorType1 , 0 );
 
-          xQueueReceive( q_sensorsTapisEntree , &firstSensorType , portMAX_DELAY );
-          xQueueReceive( q_sensorsTapisEntree , &secondSensorType , 0 );
-
-          typePiece = ( ( firstSensorType.value << firstSensorType.sensor ) | ( secondSensorType.value << secondSensorType.sensor )) - 1;
-
-          char label[ 15 ];
-          sprintf(label, "Piece type : %d", typePiece);
-    	  LCD_DisplayStringLine( 24 , (uint8_t*) label );
+          typePiece = sensorType0.value | ( sensorType1.value << 1 );
 
           if( t_cpt_type_manquante[ typePiece ] != 0)
           {
@@ -54,17 +47,13 @@ void vTaskTapisEntree( void *pvParameters )
               sensorToSubscribe.sensor = SENSOR_BOUT_TAPIS_ENTREE;
               sensorToSubscribe.value = 1;
 
-              LCD_DisplayStringLine( 60 , "Subscription sen2" );
               xQueueSendToFront( q_newSubscriptions , ( void * const )&sensorToSubscribe , portMAX_DELAY );
-              LCD_DisplayStringLine( 60 , "Subscription done" );
-              xQueueReceive( q_sensorsTapisEntree , ( void * const )&dummy , portMAX_DELAY );
-              LCD_DisplayStringLine( 60 , "Receive sen2 done" );
+              xQueueReceive( q_sensorsTapisEntree , ( void * const )NULL , portMAX_DELAY );
 
               DeplacerTapisEntree( 0 );
 
               xQueueSendToFront( q_pieceDispo , ( void * const )&typePiece , portMAX_DELAY );
-              xQueueReceive( q_piecePrise , ( void * const )&dummy , portMAX_DELAY );
-              // xQueueReceive( q_piecePrise , ( void * const )&dummy , 0 );
+              xQueueReceive( q_piecePrise , ( void * const )NULL , portMAX_DELAY );
 
               cpt_pieces_prises++;
           }

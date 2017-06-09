@@ -12,30 +12,20 @@ void vTaskEcritureActionneur( void *pvParameters )
 
   while( 1 )
   {
-	xQueueReceive( q_actuators , ( const void * )&bufferActuator , portMAX_DELAY ) ;
-
-	if ( bufferActuator.value == 1 )
-      actuatorsValues |= 1 << bufferActuator.actuator;
-    else
-      actuatorsValues &= 0xFF ^ ( 1 << bufferActuator.actuator );
-
+    STM_EVAL_LEDToggle( LED3 );
     while ( xQueueReceive( q_actuators , ( const void * )&bufferActuator , 0 ) != errQUEUE_EMPTY )
     {
-      if ( bufferActuator.value == 1 )
-        actuatorsValues |= 1 << bufferActuator.actuator;
+      if ( bufferActuator.value == 1u )
+        actuatorsValues |= 1u << bufferActuator.actuator;
       else
-        actuatorsValues &= 0xFF ^ ( 1 << bufferActuator.actuator );
+        actuatorsValues &= 0xFF ^ ( 1u << bufferActuator.actuator );
     }
-
-    char label[ 15 ];
-	sprintf( label , "Actuators : %02X" , actuatorsValues );
-	LCD_DisplayStringLine( 48 , (uint8_t*) label );
 
     xSemaphoreTake( sem_I2C_BUS , portMAX_DELAY );
     WriteActuators( &actuatorsValues );
     xSemaphoreGive( sem_I2C_BUS );
 
-   // vTaskDelayUntil( &xLastWakeTime , ACTUATORS_UPDATE_PERIOD / portTICK_RATE_MS );
+    vTaskDelayUntil( &xLastWakeTime , ACTUATORS_UPDATE_PERIOD / portTICK_RATE_MS );
   }
 }
 

@@ -50,15 +50,6 @@ int main( void )
     STM_EVAL_LEDInit(LED4);
     STM_EVAL_PBInit(BUTTON_USER, BUTTON_MODE_GPIO);
 
-    // Init LCD
-
-	LCD_Init();
-	LCD_LayerInit();
-	LTDC_Cmd(ENABLE);
-	LCD_SetLayer(LCD_FOREGROUND_LAYER);
-	LCD_Clear(0xFFFF);
-	LCD_SetTextColor(0x0000);
-	LCD_SetFont(&Font12x12);
     // Start IO Extenders (Touchpad & PCF IO Extenders)
 
     IOE_Config();
@@ -91,43 +82,63 @@ int main( void )
     // Initialize resources management variable
     q_newSubscriptions = xQueueCreate( SENSORS_QUEUE_LENGTH , sizeof( subscription_t ) );
     if ( q_newSubscriptions == NULL )
-      return 1;
+    {
+        STM_EVAL_LEDOn(LED4);
+    }
 
     q_actuators = xQueueCreate( ACTUATORS_QUEUE_LENGTH , sizeof( actuators_t ) );
     if ( q_actuators == NULL )
-      return 1;
+      {
+          STM_EVAL_LEDOn(LED4);
+      }
 
     q_sensorsTapisSortie = xQueueCreate( 1 , sizeof( sensor_t ) );
     if ( q_sensorsTapisSortie == NULL )
-      return 1;
+      {
+          STM_EVAL_LEDOn(LED4);
+      }
 
     q_caisseArrivee = xQueueCreate( 1 , sizeof( uint8_t ) );
     if ( q_caisseArrivee == NULL )
-      return 1;
+      {
+          STM_EVAL_LEDOn(LED4);
+      }
 
     q_caissePleine = xQueueCreate( 1 , sizeof( uint8_t ) );
     if ( q_caissePleine == NULL )
-      return 1;
+      {
+          STM_EVAL_LEDOn(LED4);
+      }
 
     q_sensorsTapisEntree = xQueueCreate( 2 , sizeof( sensor_t ) );
     if ( q_sensorsTapisEntree == NULL )
-      return 1;
+      {
+          STM_EVAL_LEDOn(LED4);
+      }
 
     q_pieceDispo = xQueueCreate( 1 , sizeof( uint8_t ) );
     if ( q_pieceDispo == NULL )
-      return 1;
+      {
+          STM_EVAL_LEDOn(LED4);
+      }
 
     q_piecePrise = xQueueCreate( 1 , sizeof( uint8_t ) );
    if ( q_piecePrise == NULL )
-     return 1;
+     {
+         STM_EVAL_LEDOn(LED4);
+     }
 
    q_sensorsRobot = xQueueCreate( 1 , sizeof( sensor_t ) );
    if ( q_sensorsRobot == NULL )
-     return 1;
+     {
+         STM_EVAL_LEDOn(LED4);
+     }
 
     sem_I2C_BUS = xSemaphoreCreateMutex();
     if ( sem_I2C_BUS == NULL )
-      return 1;
+      {
+          STM_EVAL_LEDOn(LED4);
+      }
 
     // Create Tasks
 
@@ -137,11 +148,10 @@ int main( void )
     xTaskCreate( vTaskTapisEntree , "Task_TapisEntree" , 128 , NULL , TASK_TAPIS_ENTREE_PRIORITY , NULL );        // 128 bytes stack, priority 1
     xTaskCreate( vTaskRobot , "Task_Robot" , 128 , NULL , TASK_ROBOT_PRIORITY , NULL );        // 128 bytes stack, priority 1
 
+
     user_event_channel = xTraceOpenLabel("UEV");
 
     // Start the Scheduler
-
-	LCD_DisplayStringLine(12, (uint8_t*) "Init done");
 
     vTaskStartScheduler();
 
