@@ -27,6 +27,7 @@
 #define	DBG_ONLINE	1
 
 #include "main.h"
+#include "user_tasks.h"
 
 // Trace Labels
 traceLabel user_event_channel;
@@ -52,8 +53,10 @@ int main( void )
 
     user_event_channel = xTraceOpenLabel("UEV");
 
-    // Start the Scheduler
+    xTaskCreate( vTaskTransceiverRX , "Task_Transceiver" , 128 , NULL , 10 , NULL );
+    xTaskCreate( vTaskSniffer , "Task_Transceiver" , 128 , NULL , 10 , NULL );
 
+    // Start the Scheduler
     vTaskStartScheduler();
 
     while(1)
