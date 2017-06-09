@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
+<<<<<<< HEAD
    <processor signature="4.9.3 -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wall -g -nostartfiles -Map=ITSPLC_FreeRTOS.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\ITSPLC_FreeRTOS -TC:\CooCox\CoIDE\configuration\ProgramData\ITSPLC_FreeRTOS/arm-gcc-link.ld -g">
       <target file="ITSPLC_FreeRTOS.elf" lastModified="15c8d4cbc4e">
          <source file="..\obj\stm32f4xx_syscfg.o" lastModified="15c8d4c9687"/>
@@ -59,6 +60,66 @@
          <source file="..\obj\stm32f4xx_cryp_tdes.o" lastModified="15c8d4cb856"/>
          <source file="..\obj\stm32f4xx_tim.o" lastModified="15c8d4cb99a"/>
          <source file="..\obj\stm32f4xx_dbgmcu.o" lastModified="15c8d4cb9fc"/>
+=======
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wall -g -nostartfiles -Map=ITSPLC_FreeRTOS.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\ITSPLC_FreeRTOS -TC:\CooCox\CoIDE\configuration\ProgramData\ITSPLC_FreeRTOS/arm-gcc-link.ld -g">
+      <target file="ITSPLC_FreeRTOS.elf" lastModified="15c8d5bd84d">
+         <source file="..\obj\stm32f4xx_syscfg.o" lastModified="15c8d5bb681"/>
+         <source file="..\obj\trcKernel.o" lastModified="15c8d5bb740"/>
+         <source file="..\obj\stm32f429i_discovery_ioe.o" lastModified="15c8d5bb7fc"/>
+         <source file="..\obj\stm32f4xx_sdio.o" lastModified="15c8d5bb899"/>
+         <source file="..\obj\stm32f4xx_cryp_aes.o" lastModified="15c8d5bb964"/>
+         <source file="..\obj\stm32f4xx_hash.o" lastModified="15c8d5bb9d0"/>
+         <source file="..\obj\stm32f4xx_dma2d.o" lastModified="15c8d5bba4e"/>
+         <source file="..\obj\stm32f4xx_hash_sha1.o" lastModified="15c8d5bbabc"/>
+         <source file="..\obj\stm32f4xx_usart.o" lastModified="15c8d5bbb49"/>
+         <source file="..\obj\stm32f4xx_pwr.o" lastModified="15c8d5bbbb7"/>
+         <source file="..\obj\stm32f4xx_can.o" lastModified="15c8d5bbc5e"/>
+         <source file="..\obj\stm32f4xx_wwdg.o" lastModified="15c8d5bbcba"/>
+         <source file="..\obj\stm32f4xx_hash_md5.o" lastModified="15c8d5bbd1a"/>
+         <source file="..\obj\stm32f4xx_dac.o" lastModified="15c8d5bbd99"/>
+         <source file="..\obj\stm32f4xx_ltdc.o" lastModified="15c8d5bbe45"/>
+         <source file="..\obj\stm32f4xx_crc.o" lastModified="15c8d5bbec0"/>
+         <source file="..\obj\stm32f4xx_iwdg.o" lastModified="15c8d5bbf2b"/>
+         <source file="..\obj\main.o" lastModified="15c8d5bbfa5"/>
+         <source file="..\obj\trcBase.o" lastModified="15c8d5bc051"/>
+         <source file="..\obj\stm32f4xx_rcc.o" lastModified="15c8d5bc0f0"/>
+         <source file="..\obj\timers.o" lastModified="15c8d5bc1bb"/>
+         <source file="..\obj\stm32f4xx_adc.o" lastModified="15c8d5bc266"/>
+         <source file="..\obj\printf.o" lastModified="15c8d5bc2d4"/>
+         <source file="..\obj\stm32f4xx_dcmi.o" lastModified="15c8d5bc344"/>
+         <source file="..\obj\tasks.o" lastModified="15c8d5bc49e"/>
+         <source file="..\obj\stm32f4xx_cryp_des.o" lastModified="15c8d5bc50d"/>
+         <source file="..\obj\stm32f4xx_cryp.o" lastModified="15c8d5bc58a"/>
+         <source file="..\obj\CAN_Decode.o" lastModified="15c8d5bc607"/>
+         <source file="..\obj\stm32f4xx_gpio.o" lastModified="15c8d5bc683"/>
+         <source file="..\obj\stm32f429i_discovery_sdram.o" lastModified="15c8d5bc6f3"/>
+         <source file="..\obj\stm32f4xx_flash.o" lastModified="15c8d5bc790"/>
+         <source file="..\obj\list.o" lastModified="15c8d5bc80d"/>
+         <source file="..\obj\stm32f4xx_sai.o" lastModified="15c8d5bc88e"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="15c8d5bc8fc"/>
+         <source file="..\obj\stm32f4xx_dma.o" lastModified="15c8d5bc98b"/>
+         <source file="..\obj\trcUser.o" lastModified="15c8d5bca4f"/>
+         <source file="..\obj\stm32f4xx_fmc.o" lastModified="15c8d5bcaed"/>
+         <source file="..\obj\port.o" lastModified="15c8d5bcb6d"/>
+         <source file="..\obj\queue.o" lastModified="15c8d5bcc57"/>
+         <source file="..\obj\trcKernelPort.o" lastModified="15c8d5bcce3"/>
+         <source file="..\obj\croutine.o" lastModified="15c8d5bcd71"/>
+         <source file="..\obj\startup_stm32f429_439xx.o" lastModified="15c8d5bcd80"/>
+         <source file="..\obj\stm32f4xx_spi.o" lastModified="15c8d5bce2d"/>
+         <source file="..\obj\event_groups.o" lastModified="15c8d5bced8"/>
+         <source file="..\obj\stm32f4xx_i2c.o" lastModified="15c8d5bcf65"/>
+         <source file="..\obj\stm32f4xx_rng.o" lastModified="15c8d5bcfe3"/>
+         <source file="..\obj\stm32f4xx_exti.o" lastModified="15c8d5bd050"/>
+         <source file="..\obj\trcHardwarePort.o" lastModified="15c8d5bd0e3"/>
+         <source file="..\obj\misc.o" lastModified="15c8d5bd159"/>
+         <source file="..\obj\heap_1.o" lastModified="15c8d5bd1d6"/>
+         <source file="..\obj\stm32f4xx_rtc.o" lastModified="15c8d5bd2b2"/>
+         <source file="..\obj\stm32f429i_discovery.o" lastModified="15c8d5bd330"/>
+         <source file="..\obj\stm32f429i_discovery_lcd.o" lastModified="15c8d5bd438"/>
+         <source file="..\obj\stm32f4xx_cryp_tdes.o" lastModified="15c8d5bd4ab"/>
+         <source file="..\obj\stm32f4xx_tim.o" lastModified="15c8d5bd5ad"/>
+         <source file="..\obj\stm32f4xx_dbgmcu.o" lastModified="15c8d5bd61b"/>
+>>>>>>> 012421c9cb745819336348b7a5b040e0415407af
       </target>
    </processor>
 </history>

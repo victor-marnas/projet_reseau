@@ -74,11 +74,18 @@
   </Components>
   <Files>
     <File name="stdperiph_lib/inc/stm32f4xx_usart.h" path="stdperiph_lib/inc/stm32f4xx_usart.h" type="1"/>
+<<<<<<< HEAD
     <File name="stdperiph_lib/inc/stm32f4xx_rcc.h" path="stdperiph_lib/inc/stm32f4xx_rcc.h" type="1"/>
     <File name="stdperiph_lib/inc/stm32f4xx_wwdg.h" path="stdperiph_lib/inc/stm32f4xx_wwdg.h" type="1"/>
     <File name="BSP/inc" path="" type="2"/>
     <File name="stdperiph_lib/src/stm32f4xx_tim.c" path="stdperiph_lib/src/stm32f4xx_tim.c" type="1"/>
     <File name="Tasks/user_tasks.h" path="Tasks/user_tasks.h" type="1"/>
+=======
+    <File name="stdperiph_lib/inc/stm32f4xx_wwdg.h" path="stdperiph_lib/inc/stm32f4xx_wwdg.h" type="1"/>
+    <File name="BSP/inc" path="" type="2"/>
+    <File name="Lib/CAN_Decode.c" path="Lib/CAN_Decode.c" type="1"/>
+    <File name="stdperiph_lib/src/stm32f4xx_tim.c" path="stdperiph_lib/src/stm32f4xx_tim.c" type="1"/>
+>>>>>>> 012421c9cb745819336348b7a5b040e0415407af
     <File name="Tasks" path="" type="2"/>
     <File name="cmsis_boot/stm32f4xx.h" path="cmsis_boot/stm32f4xx.h" type="1"/>
     <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
@@ -90,8 +97,13 @@
     <File name="main.h" path="main.h" type="1"/>
     <File name="FreeRTOS/portable/MemMang" path="" type="2"/>
     <File name="stdperiph_lib/inc/stm32f4xx_exti.h" path="stdperiph_lib/inc/stm32f4xx_exti.h" type="1"/>
+<<<<<<< HEAD
     <File name="stdperiph_lib/src/misc.c" path="stdperiph_lib/src/misc.c" type="1"/>
     <File name="stdperiph_lib/inc/stm32f4xx_dma2d.h" path="stdperiph_lib/inc/stm32f4xx_dma2d.h" type="1"/>
+=======
+    <File name="stdperiph_lib/inc/stm32f4xx_dma2d.h" path="stdperiph_lib/inc/stm32f4xx_dma2d.h" type="1"/>
+    <File name="stdperiph_lib/src/misc.c" path="stdperiph_lib/src/misc.c" type="1"/>
+>>>>>>> 012421c9cb745819336348b7a5b040e0415407af
     <File name="stdperiph_lib/src/stm32f4xx_rng.c" path="stdperiph_lib/src/stm32f4xx_rng.c" type="1"/>
     <File name="BSP" path="" type="2"/>
     <File name="FreeRTOS/list.c" path="freertos/list.c" type="1"/>
@@ -202,9 +214,15 @@
     <File name="stdperiph_lib/inc/stm32f4xx_rng.h" path="stdperiph_lib/inc/stm32f4xx_rng.h" type="1"/>
     <File name="stdperiph_lib/src/stm32f4xx_dcmi.c" path="stdperiph_lib/src/stm32f4xx_dcmi.c" type="1"/>
     <File name="stdperiph_lib/src/stm32f4xx_pwr.c" path="stdperiph_lib/src/stm32f4xx_pwr.c" type="1"/>
+    <File name="Lib" path="" type="2"/>
     <File name="FreeRTOS/croutine.c" path="freertos/croutine.c" type="1"/>
     <File name="stdperiph_lib/inc/stm32f4xx_tim.h" path="stdperiph_lib/inc/stm32f4xx_tim.h" type="1"/>
     <File name="FreeRTOS-Plus-Trace/trcHardwarePort.c" path="FreeRTOS-Plus-Trace/trcHardwarePort.c" type="1"/>
+<<<<<<< HEAD
+=======
+    <File name="stdperiph_lib/src/stm32f4xx_cryp_des.c" path="stdperiph_lib/src/stm32f4xx_cryp_des.c" type="1"/>
+    <File name="stdperiph_lib/inc/stm32f4xx_ltdc.h" path="stdperiph_lib/inc/stm32f4xx_ltdc.h" type="1"/>
+>>>>>>> 012421c9cb745819336348b7a5b040e0415407af
     <File name="FreeRTOS-Plus-Trace/Include/trcKernel.h" path="FreeRTOS-Plus-Trace/Include/trcKernel.h" type="1"/>
     <File name="stdperiph_lib/src/stm32f4xx_cryp_des.c" path="stdperiph_lib/src/stm32f4xx_cryp_des.c" type="1"/>
     <File name="stdperiph_lib/inc/stm32f4xx_ltdc.h" path="stdperiph_lib/inc/stm32f4xx_ltdc.h" type="1"/>
