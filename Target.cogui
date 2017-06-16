@@ -4,8 +4,8 @@
 <window>
 <fastViewData fastViewLocation="1024">
 <orientation position="512" view="org.eclipse.debug.ui.ExpressionView"/>
-<orientation position="512" view="org.coocox.builder.ui.views.ProjectView"/>
 <orientation position="512" view="org.coocox.component.ui.ComponentView"/>
+<orientation position="512" view="org.coocox.builder.ui.views.ProjectView"/>
 <orientation position="512" view="org.coocox.codebugger.trace.ui.traceview"/>
 <orientation position="512" view="org.eclipse.ui.console.ConsoleView"/>
 <orientation position="512" view="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser"/>
@@ -17,56 +17,10 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-<part id="3"/>
-<part id="2"/>
-<part id="1"/>
-<part id="4"/>
-<part id="5"/>
-<part id="6"/>
-<part id="7"/>
-<part id="8"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/CooCox/CoIDE/workspace/projet_reseau/main.c" title="main.c" tooltip="C:/CooCox/CoIDE/workspace/projet_reseau/main.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITSPLC_FreeRTOS/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="630" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TD_acquisition.c" partName="TD_acquisition.c" path="C:/CooCox/CoIDE/workspace/Projet_RTOS/Tasks/TD_acquisition.c" title="TD_acquisition.c" tooltip="C:/CooCox/CoIDE/workspace/Projet_RTOS/Tasks/TD_acquisition.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITSPLC_FreeRTOS/Tasks/TD_acquisition.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="53" selectionOffset="1704" selectionTopPixel="361"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="user_tasks.h" partName="user_tasks.h" path="C:/CooCox/CoIDE/workspace/Projet_RTOS/Tasks/user_tasks.h" title="user_tasks.h" tooltip="C:/CooCox/CoIDE/workspace/Projet_RTOS/Tasks/user_tasks.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITSPLC_FreeRTOS/Tasks/user_tasks.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="274" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.h" partName="main.h" path="C:/CooCox/CoIDE/workspace/Projet_RTOS/main.h" title="main.h" tooltip="C:/CooCox/CoIDE/workspace/Projet_RTOS/main.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITSPLC_FreeRTOS/main.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="254" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TD_ecriture.c" partName="TD_ecriture.c" path="C:/CooCox/CoIDE/workspace/Projet_RTOS/Tasks/TD_ecriture.c" title="TD_ecriture.c" tooltip="C:/CooCox/CoIDE/workspace/Projet_RTOS/Tasks/TD_ecriture.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITSPLC_FreeRTOS/Tasks/TD_ecriture.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="54" selectionOffset="860" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TD_tapisSortie.c" partName="TD_tapisSortie.c" path="C:/Users/N.Desvignes/Cours/SE5/Système temps réel/TP/Projet_RTOS/Tasks/TD_tapisSortie.c" title="TD_tapisSortie.c" tooltip="C:/Users/N.Desvignes/Cours/SE5/Système temps réel/TP/Projet_RTOS/Tasks/TD_tapisSortie.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITSPLC_FreeRTOS/Tasks/TD_tapisSortie.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="13" selectionOffset="427" selectionTopPixel="58"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TD_tapisEntree.c" partName="TD_tapisEntree.c" path="C:/Users/N.Desvignes/Cours/SE5/Système temps réel/TP/Projet_RTOS/Tasks/TD_tapisEntree.c" title="TD_tapisEntree.c" tooltip="C:/Users/N.Desvignes/Cours/SE5/Système temps réel/TP/Projet_RTOS/Tasks/TD_tapisEntree.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITSPLC_FreeRTOS/Tasks/TD_tapisEntree.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1792" selectionTopPixel="601"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="TD_robot.c" partName="TD_robot.c" path="C:/Users/N.Desvignes/Cours/SE5/Système temps réel/TP/Projet_RTOS/Tasks/TD_robot.c" title="TD_robot.c" tooltip="C:/Users/N.Desvignes/Cours/SE5/Système temps réel/TP/Projet_RTOS/Tasks/TD_robot.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITSPLC_FreeRTOS/Tasks/TD_robot.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1005" selectionTopPixel="416"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="FreeRTOSConfig.h" partName="FreeRTOSConfig.h" path="C:/CooCox/CoIDE/workspace/Projet_RTOS/FreeRTOSConfig.h" title="FreeRTOSConfig.h" tooltip="C:/CooCox/CoIDE/workspace/Projet_RTOS/FreeRTOSConfig.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITSPLC_FreeRTOS/FreeRTOSConfig.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="4" selectionOffset="4788" selectionTopPixel="1229"/>
-</editor>
 </editors>
 <views>
 <view id="org.eclipse.debug.ui.ExpressionView" partName="Expressions">
@@ -75,17 +29,7 @@
 </viewState>
 </view>
 <view id="org.coocox.builder.ui.views.ProjectView" partName="Project">
-<viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="11">
-<expanded>
-<element path="/ITSPLC_FreeRTOS"/>
-<element path="/ITSPLC_FreeRTOS/FreeRTOS"/>
-<element path="/ITSPLC_FreeRTOS/FreeRTOS/include"/>
-<element path="/ITSPLC_FreeRTOS/Tasks"/>
-</expanded>
-<selection>
-<element path="/ITSPLC_FreeRTOS/FreeRTOS/include/FreeRTOS.h"/>
-</selection>
-</viewState>
+<viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0"/>
 </view>
 <view id="org.eclipse.search.ui.views.SearchView" partName="Search">
 <viewState isPinned="false">
@@ -110,15 +54,15 @@
 <view id="org.eclipse.debug.ui.VariableView" partName="Variables">
 <viewState/>
 </view>
-<view id="org.coocox.component.ui.Help" partName="Help">
-<viewState/>
-</view>
 <view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
 <viewState/>
 </view>
+<view id="org.coocox.component.ui.Help" partName="Help">
+<viewState/>
+</view>
 </views>
-<perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="org.coocox.builder.perspective.CoBuilder">
-<perspective editorAreaTrimState="1" editorAreaVisible="1" fixed="0" version="0.016">
+<perspectives activePart="org.coocox.builder.ui.views.ProjectView" activePerspective="org.coocox.builder.perspective.CoBuilder">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.coocox.builder.ui.PerspectiveCoBuilder" id="org.coocox.builder.perspective.CoBuilder" label="CooCox CoBuilder"/>
 <alwaysOnActionSet id="org.coocox.component.ui.actionSet"/>
 <alwaysOnActionSet id="org.coocox.welcome.ui.actionSet"/>
@@ -147,23 +91,10 @@
 <hide_toolbar_item_id id="org.eclipse.cdt.debug.internal.ui.actions.ToggleInstructionStepModeAction"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
-<fastViewBars>
-<fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@1d64832" orientation="256" selectedTabId="org.coocox.component.ui.Help" style="1">
-<fastViews>
-<view id="org.coocox.component.ui.Help" ratio="0.3"/>
-</fastViews>
-</fastViewBar>
-<fastViewBar fastViewLocation="16384" id="org.eclipse.ui.internal.ViewStack@89634c" orientation="256" selectedTabId="org.coocox.builder.ui.views.ProjectView" style="1">
-<fastViews>
-<view id="org.coocox.builder.ui.views.ProjectView" ratio="0.2984127"/>
-</fastViews>
-</fastViewBar>
-<fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@1958a9f" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="1">
-<fastViews>
-<view id="org.eclipse.ui.console.ConsoleView" ratio="0.5873016"/>
-</fastViews>
-</fastViewBar>
-</fastViewBars>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.coocox.component.ui.Help"/>
+<view id="org.coocox.builder.ui.views.ProjectView"/>
+<fastViewBars/>
 <layout>
 <mainWindow>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@f5e10a">
@@ -179,27 +110,33 @@
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@1958a9f" ratio="0.5550239" ratioLeft="348" ratioRight="279" relationship="4" relative="org.eclipse.ui.internal.ViewStack@f5e10a">
-<folder appearance="2" expanded="2">
-<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
 </folder>
 </info>
 <info part="org.coocox.builder.ui.exampleView" ratio="0.17692308" ratioLeft="230" ratioRight="1070" relationship="2" relative="org.eclipse.ui.internal.ViewStack@f5e10a"/>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@1d64832" ratio="0.7205882" ratioLeft="1029" ratioRight="399" relationship="2" relative="org.coocox.builder.ui.exampleView">
-<folder appearance="2" expanded="2">
-<page content="org.coocox.component.ui.Help" label="LabelNotFound"/>
+<folder activePageID="org.coocox.component.ui.Help" appearance="2" expanded="2">
+<page content="org.coocox.component.ui.Help" label="Help"/>
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
 <page content="org.coocox.coassistant.view.CoAssistantView" label="LabelNotFound"/>
 <page content="org.coocox.builder.ui.MoreExampleView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.4489093" ratioLeft="391" ratioRight="480" relationship="4" relative="org.coocox.builder.ui.exampleView"/>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@89634c" ratio="0.36969" ratioLeft="322" ratioRight="549" relationship="4" relative="org.eclipse.ui.internal.ViewStack@f5e10a">
-<folder appearance="2" expanded="2">
-<page content="org.coocox.builder.ui.views.ProjectView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<folder activePageID="org.coocox.builder.ui.views.ProjectView" appearance="2" expanded="2">
+<page content="org.coocox.builder.ui.views.ProjectView" label="Project"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
 </folder>
 </info>
 </mainWindow>
@@ -312,180 +249,7 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory>
-<editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ITSPLC_FreeRTOS/Tasks/TD_robot.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ITSPLC_FreeRTOS/main.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ITSPLC_FreeRTOS/Tasks/user_tasks.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ITSPLC_FreeRTOS/Tasks/TD_tapisSortie.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ITSPLC_FreeRTOS/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ITSPLC_FreeRTOS/Tasks/TD_acquisition.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ITSPLC_FreeRTOS/main.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ITSPLC_FreeRTOS/Tasks/TD_robot.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ITSPLC_FreeRTOS/Tasks/TD_tapisEntree.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ITSPLC_FreeRTOS/main.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ITSPLC_FreeRTOS/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ITSPLC_FreeRTOS/Tasks/TD_acquisition.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ITSPLC_FreeRTOS/Tasks/TD_ecriture.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ITSPLC_FreeRTOS/FreeRTOS/include/FreeRTOS.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ITSPLC_FreeRTOS/FreeRTOSConfig.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ITSPLC_FreeRTOS/Tasks/user_tasks.h"/>
-<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor">
-<org.coocox.builder.ui.editors.ConfigEditor/>
-</editor>
-<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor">
-<org.coocox.builder.ui.editors.ConfigEditor/>
-</editor>
-<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage">
-<org.coocox.welcome.ui.WelcomePage/>
-</editor>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ITSPLC_FreeRTOS/main.c"/>
-</editors>
-<item historyLabel="user_tasks.h" index="2">
-<position info="not_deleted" x="274" y="0"/>
-</item>
-<item historyLabel="main.h" index="1">
-<position info="not_deleted" x="1139" y="0"/>
-</item>
-<item historyLabel="TD_robot.c" index="0">
-<position info="not_deleted" x="4100" y="16"/>
-</item>
-<item historyLabel="user_tasks.h" index="2">
-<position info="not_deleted" x="274" y="0"/>
-</item>
-<item historyLabel="main.h" index="1">
-<position info="not_deleted" x="1513" y="0"/>
-</item>
-<item historyLabel="TD_robot.c" index="0">
-<position info="not_deleted" x="4100" y="16"/>
-</item>
-<item historyLabel="user_tasks.h" index="2">
-<position info="not_deleted" x="274" y="0"/>
-</item>
-<item historyLabel="main.h" index="1">
-<position info="not_deleted" x="1517" y="0"/>
-</item>
-<item historyLabel="TD_robot.c" index="0">
-<position info="not_deleted" x="3143" y="95"/>
-</item>
-<item historyLabel="TD_tapisSortie.c" index="3">
-<position info="not_deleted" x="427" y="13"/>
-</item>
-<item historyLabel="TD_robot.c" index="0">
-<position info="not_deleted" x="3227" y="0"/>
-</item>
-<item historyLabel="TD_robot.c" index="0">
-<position info="not_deleted" x="4969" y="0"/>
-</item>
-<item historyLabel="TD_robot.c" index="0">
-<position info="not_deleted" x="1989" y="97"/>
-</item>
-<item historyLabel="TD_robot.c" index="0">
-<position info="not_deleted" x="2513" y="0"/>
-</item>
-<item historyLabel="TD_robot.c" index="0">
-<position info="not_deleted" x="3935" y="0"/>
-</item>
-<item historyLabel="main.h" index="1">
-<position info="not_deleted" x="1191" y="0"/>
-</item>
-<item historyLabel="TD_robot.c" index="0">
-<position info="not_deleted" x="1005" y="0"/>
-</item>
-<item historyLabel="user_tasks.h" index="2">
-<position info="not_deleted" x="274" y="0"/>
-</item>
-<item historyLabel="main.c" index="4">
-<position info="not_deleted" x="4129" y="0"/>
-</item>
-<item historyLabel="TD_acquisition.c" index="5">
-<position info="not_deleted" x="987" y="0"/>
-</item>
-<item historyLabel="main.c" index="4">
-<position info="not_deleted" x="3526" y="0"/>
-</item>
-<item historyLabel="main.h" index="6">
-<position info="not_deleted" x="1191" y="0"/>
-</item>
-<item historyLabel="main.c" index="4">
-<position info="not_deleted" x="3356" y="0"/>
-</item>
-<item historyLabel="TD_robot.c" index="7">
-<position info="not_deleted" x="1005" y="0"/>
-</item>
-<item historyLabel="TD_tapisEntree.c" index="8">
-<position info="not_deleted" x="1792" y="0"/>
-</item>
-<item historyLabel="main.h" index="9">
-<position info="not_deleted" x="1141" y="0"/>
-</item>
-<item historyLabel="main.c" index="10">
-<position info="not_deleted" x="3358" y="0"/>
-</item>
-<item historyLabel="TD_acquisition.c" index="11">
-<position info="not_deleted" x="987" y="0"/>
-</item>
-<item historyLabel="TD_ecriture.c" index="12">
-<position info="not_deleted" x="46" y="50"/>
-</item>
-<item historyLabel="main.c" index="10">
-<position info="not_deleted" x="3358" y="0"/>
-</item>
-<item historyLabel="FreeRTOS.h" index="13">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="main.c" index="10">
-<position info="not_deleted" x="781" y="0"/>
-</item>
-<item historyLabel="main.h" index="9">
-<position info="not_deleted" x="254" y="0"/>
-</item>
-<item historyLabel="FreeRTOSConfig.h" index="14">
-<position info="not_deleted" x="4778" y="0"/>
-</item>
-<item historyLabel="main.c" index="10">
-<position info="not_deleted" x="3358" y="0"/>
-</item>
-<item historyLabel="TD_ecriture.c" index="12">
-<position info="not_deleted" x="46" y="50"/>
-</item>
-<item historyLabel="TD_acquisition.c" index="11">
-<position info="not_deleted" x="987" y="0"/>
-</item>
-<item historyLabel="main.c" index="10">
-<position info="not_deleted" x="4525" y="0"/>
-</item>
-<item historyLabel="TD_acquisition.c" index="11">
-<position info="not_deleted" x="1704" y="53"/>
-</item>
-<item historyLabel="main.c" index="10">
-<position info="not_deleted" x="4525" y="0"/>
-</item>
-<item historyLabel="user_tasks.h" index="15">
-<position info="not_deleted" x="274" y="0"/>
-</item>
-<item historyLabel="TD_ecriture.c" index="12">
-<position info="not_deleted" x="860" y="54"/>
-</item>
-<item historyLabel="main.c" index="10">
-<position info="not_deleted" x="4388" y="0"/>
-</item>
-<item historyLabel="main.c" index="10">
-<position info="not_deleted" x="4379" y="0"/>
-</item>
-<item historyLabel="FreeRTOSConfig.h" index="14">
-<position info="not_deleted" x="4788" y="4"/>
-</item>
-<item historyLabel="main.c" index="10">
-<position info="not_deleted" x="4379" y="0"/>
-</item>
-<item historyLabel="Configuration" index="16"/>
-<item historyLabel="Configuration" index="17"/>
-<item historyLabel="welcome" index="18"/>
-<item active="true" historyLabel="main.c" index="19">
-<position info="not_deleted" x="630" y="0"/>
-</item>
-</navigationHistory>
+<navigationHistory/>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
