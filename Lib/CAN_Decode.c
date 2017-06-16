@@ -1,14 +1,14 @@
 #include "main.h"
 
-#define max_step 8
+#define max_step 9
 
 typedef struct {
 	uint16_t ID			: 11;
 	uint8_t RTR			: 1;
 	uint8_t dataLength	: 4;
 	uint8_t data[ 8u ];
+	uint16_t crc        : 15;
 	uint8_t isValid		: 1;
-	uint16_t			: 15;
 }tCAN_msg;
 
 static inline void initialize( tCAN_msg* msg )
@@ -35,10 +35,15 @@ tCAN_msg bitToMsg(uint8_t octet[ 17u ], uint8_t size)
 	uint8_t octetIndex = 0u;
 	uint8_t bitIndex = 7u;
 	uint8_t previousBit = 0u;
+	uint8_t dataIndex = 0u;
+	uint8_t crcIndex = 15u;
 	uint8_t consecutiveBitCount = 0u;
+	uint8_t eotBitCount = 0u;
+	uint8_t intertrameBitCount = 0u;
 	int8_t step = 0;
 	int8_t idIndex = 10;
 	int8_t ctrlIndex = 5;
+	int8_t ack = -1;
 
 	tCAN_msg msg;
 
@@ -118,37 +123,125 @@ tCAN_msg bitToMsg(uint8_t octet[ 17u ], uint8_t size)
 
 					if ( ctrlIndex == 0u )
 					{
+						dataIndex = msg.dataLength;
+
 						step++;
 					}
 				}
 
 				ctrlIndex--;
+
 				break;
 			}
 			case 4: // Champ de bits
 			{
+				if (0 < dataIndex)
+				{
+					msg.data[dataIndex] += ( bit << bitIndex );
+
+					if ( bitIndex == 0u )
+					{
+						if (dataIndex == 0)
+						{
+							step++;
+						}
+						else
+						{
+							dataIndex--;
+						}
+					}
+				}
+
 				break;
 			}
-			case 5: // Champ de CRC + 1 delimiteurs
+			case 5: // Champ de CRC
 			{
+				msg.crc += (bit << crcIndex);
+
+				if (crcIndex == 0) {
+					step++;
+				}
+
+				crcIndex--;
+
 				break;
 			}
-			case 6: // Champ ack
+			case 6: // delimiteur
 			{
+				if (bit == 0) {
+					step++;
+				}
+				else {
+					step = -1;
+				}
+
 				break;
 			}
-			case 7: // EOT
+			case 7: // Champ ack + délimiteur
 			{
+				if (ack == -1)
+				{
+					ack = bit;
+				}
+				else
+				{
+					if (bit == 0)
+					{
+						step++;
+					}
+					else
+					{
+						step = -1;
+					}
+				}
+
 				break;
 			}
-			case 8: // Intertrame
+			case 8: // EOT
 			{
+				if (bit == 0)
+				{
+					eotBitCount++;
+
+					if (eotBitCount == 7)
+					{
+						step++;
+					}
+				}
+				else
+				{
+					step = -1;
+				}
+
+				break;
+			}
+			case 9: // Intertrame
+			{
+				if (bit == 0)
+				{
+					intertrameBitCount++;
+
+					if (intertrameBitCount == 3)
+					{
+						step++;
+					}
+				}
+				else
+				{
+					step = -1;
+				}
+
 				break;
 			}
 
 		}
 
 		previousBit = bit;
+	}
+
+	if (step == (max_step + 1))
+	{
+		msg.isValid = 1;
 	}
 
 	return( msg );
