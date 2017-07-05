@@ -16,6 +16,11 @@ static inline void initialize( tCAN_msg* msg )
 	msg->ID = 0u;
 	msg->RTR = 0u;
 	msg->dataLength = 0u;
+
+	uint8_t i = 0u;
+	for( i = 0u; i < 8u; msg->data[ i++ ] = 0u );
+
+	msg->crc = 0u;
 	msg->isValid = 0u;
 }
 
@@ -30,7 +35,7 @@ static inline uint8_t getBit( uint8_t* octet, uint8_t* bitIndex )
 	return( output );
 }
 
-tCAN_msg bitToMsg(uint8_t octet[ 17u ], uint8_t size)
+void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 {
 	uint8_t octetIndex = 0u;
 	uint8_t bitIndex = 7u;
@@ -45,9 +50,7 @@ tCAN_msg bitToMsg(uint8_t octet[ 17u ], uint8_t size)
 	int8_t ctrlIndex = 5;
 	int8_t ack = -1;
 
-	tCAN_msg msg;
-
-	initialize( &msg );
+	initialize( msg );
 
 	while ( ( step < max_step ) && ( step != -1 ) )
 	{
@@ -67,7 +70,7 @@ tCAN_msg bitToMsg(uint8_t octet[ 17u ], uint8_t size)
 			{
 				consecutiveBitCount++;
 
-				if ( consecutiveBitCount == 5u )
+				if ( 5u == consecutiveBitCount )
 				{
 					consecutiveBitCount = 0u;
 					continue;
@@ -96,9 +99,9 @@ tCAN_msg bitToMsg(uint8_t octet[ 17u ], uint8_t size)
 			}
 			case 1: // ID
 			{
-				msg.ID += ( bit << idIndex );
+				msg->ID += ( bit << idIndex );
 
-				if (idIndex == 0u)
+				if ( 0u == idIndex )
 				{
 					step++;
 				}
@@ -109,7 +112,7 @@ tCAN_msg bitToMsg(uint8_t octet[ 17u ], uint8_t size)
 			}
 			case 2: // RTR (données ou requete)
 			{
-				msg.RTR = bit;
+				msg->RTR = bit;
 
 				step++;
 
@@ -119,11 +122,11 @@ tCAN_msg bitToMsg(uint8_t octet[ 17u ], uint8_t size)
 			{
 				if ( ctrlIndex < 4u )
 				{
-					msg.dataLength += ( bit << ctrlIndex );
+					msg->dataLength += ( bit << ctrlIndex );
 
-					if ( ctrlIndex == 0u )
+					if ( 0u == ctrlIndex )
 					{
-						dataIndex = msg.dataLength;
+						dataIndex = msg->dataLength;
 
 						step++;
 					}
@@ -135,13 +138,13 @@ tCAN_msg bitToMsg(uint8_t octet[ 17u ], uint8_t size)
 			}
 			case 4: // Champ de bits
 			{
-				if (0 < dataIndex)
+				if ( dataIndex > 0u )
 				{
-					msg.data[dataIndex] += ( bit << bitIndex );
+					msg->data[ dataIndex ] += ( bit << bitIndex );
 
-					if ( bitIndex == 0u )
+					if ( 0u == bitIndex )
 					{
-						if (dataIndex == 0)
+						if ( 0u == dataIndex )
 						{
 							step++;
 						}
@@ -156,9 +159,10 @@ tCAN_msg bitToMsg(uint8_t octet[ 17u ], uint8_t size)
 			}
 			case 5: // Champ de CRC
 			{
-				msg.crc += (bit << crcIndex);
+				msg->crc += ( bit << crcIndex );
 
-				if (crcIndex == 0) {
+				if ( 0u == crcIndex )
+				{
 					step++;
 				}
 
@@ -217,11 +221,11 @@ tCAN_msg bitToMsg(uint8_t octet[ 17u ], uint8_t size)
 			}
 			case 9: // Intertrame
 			{
-				if (bit == 0)
+				if ( 0u == bit )
 				{
 					intertrameBitCount++;
 
-					if (intertrameBitCount == 3)
+					if ( 3u == intertrameBitCount )
 					{
 						step++;
 					}
@@ -239,10 +243,8 @@ tCAN_msg bitToMsg(uint8_t octet[ 17u ], uint8_t size)
 		previousBit = bit;
 	}
 
-	if (step == (max_step + 1))
+	if ( step == ( max_step + 1 ) )
 	{
-		msg.isValid = 1;
+		msg->isValid = 1u;
 	}
-
-	return( msg );
 }

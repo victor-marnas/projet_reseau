@@ -1,0 +1,468 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dependencies>
+   <includePath signature="/I..\..\..\workspace\projet_reseau\cmsis /I..\..\..\workspace\projet_reseau\freertos /I..\..\..\workspace\projet_reseau\Tasks /I..\..\..\workspace\projet_reseau\FreeRTOS-Plus-Trace /I..\..\..\workspace\projet_reseau\freertos\include /I..\..\..\workspace\projet_reseau\freertos\portable /I..\..\..\workspace\projet_reseau\FreeRTOS-Plus-Trace\Include /I..\..\..\workspace\projet_reseau\stdperiph_lib\inc /I..\..\..\workspace\projet_reseau\cmsis_boot /I..\..\..\workspace /I..\..\..\workspace\projet_reseau\freertos\portable\GCC\ARM_CM4F /I..\..\..\workspace\projet_reseau\BSP\inc /I..\..\..\workspace\projet_reseau\freertos\portable\GCC /I..\..\.. /I..\..\..\workspace\projet_reseau\stdperiph_lib /I..\..\..\workspace\projet_reseau\BSP /I..\..\..\workspace\projet_reseau">
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_crc.c" lastModified="15cafdf265f">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_crc.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_adc.c" lastModified="15cafdf2654">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_adc.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_dbgmcu.h" lastModified="15cafdf25ca">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_gpio.c" lastModified="15cafdf26f9">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-Trace\trcHardwarePort.c" lastModified="15cafdf26fa">
+         <include file="..\..\..\FreeRTOS-Plus-Trace\Include\trcHardwarePort.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-Trace\Include\trcKernelPort.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_sdio.c" lastModified="15cafdf2755">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_sdio.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-Trace\Include\trcUser.h" lastModified="15cafdf2309">
+         <include file="..\..\..\FreeRTOS-Plus-Trace\Include\trcKernelPort.h"/>
+      </source>
+      <source file="..\..\..\freertos\include\croutine.h" lastModified="15cafdf24b9">
+         <include file="..\..\..\freertos\include\list.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_gpio.h" lastModified="15cafdf25fa">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\BSP\inc\stm32f429i_discovery_lcd.h" lastModified="15cafdf22c2">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\BSP\inc\stm32f429i_discovery.h"/>
+         <include file="..\..\..\BSP\inc\stm32f429i_discovery_sdram.h"/>
+         <include file="..\..\..\fonts.h"/>
+         <include file="..\..\..\main.h"/>
+      </source>
+      <source file="..\..\..\cmsis\core_cm4.h" lastModified="15cafdf272f">
+         <include file="..\..\..\cmsis\core_cmInstr.h"/>
+         <include file="..\..\..\cmsis\core_cmFunc.h"/>
+         <include file="..\..\..\cmsis\core_cm4_simd.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_i2c.h" lastModified="15cafdf2608">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\freertos\list.c" lastModified="15cafdf28e6">
+         <include file="..\..\..\freertos\include\FreeRTOS.h"/>
+         <include file="..\..\..\freertos\include\list.h"/>
+      </source>
+      <source file="..\..\..\freertos\include\StackMacros.h" lastModified="15cafdf24b2">
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_pwr.h" lastModified="15cafdf2611">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_can.h" lastModified="15cafdf25ba">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_iwdg.c" lastModified="15cafdf2724">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_iwdg.h"/>
+      </source>
+      <source file="..\..\..\trcConfig.h" lastModified="15cafdf277b">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_rtc.h" lastModified="15cafdf2620">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_cryp_tdes.c" lastModified="15cafdf2677">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_cryp.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-Trace\Include\trcTypes.h" lastModified="15cafdf26ea">
+         <include file="..\..\..\trcConfig.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_syscfg.h" lastModified="15cafdf263a">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_tim.h" lastModified="15cafdf2641">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-Trace\trcKernel.c" lastModified="15cafdf2701">
+         <include file="..\..\..\FreeRTOS-Plus-Trace\Include\trcKernel.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_iwdg.h" lastModified="15cafdf2609">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_i2c.c" lastModified="15cafdf271c">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_i2c.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\freertos\include\deprecated_definitions.h" lastModified="15cafdfefdf">
+         <include file="..\..\..\freertos\portable\GCC\ARM_CM4F\portmacro.h"/>
+         <include file="..\..\..\freertos\portable\GCC\ARM_CM4F\portmacro.h"/>
+         <include file="..\..\..\freertos\portable\GCC\ARM_CM4F\portmacro.h"/>
+         <include file="..\..\..\freertos\portable\GCC\ARM_CM4F\portmacro.h"/>
+         <include file="..\..\..\freertos\portable\GCC\ARM_CM4F\portmacro.h"/>
+      </source>
+      <source file="..\..\..\freertos\include\timers.h" lastModified="15cafdf24f7">
+         <include file="..\..\..\freertos\include\task.h"/>
+      </source>
+      <source file="..\..\..\freertos\include\semphr.h" lastModified="15cafdf24e6">
+         <include file="..\..\..\freertos\include\queue.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_pwr.c" lastModified="15cafdf2730">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_pwr.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_can.c" lastModified="15cafdf265d">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_can.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\freertos\portable\GCC\ARM_CM4F\portmacro.h" lastModified="15cafdf2509">
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_sdio.h" lastModified="15cafdf262e">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_rtc.c" lastModified="15cafdf2749">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rtc.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_wwdg.c" lastModified="15cafdf2775">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_wwdg.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_fmc.h" lastModified="15cafdf25ec">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_tim.c" lastModified="15cafdf2768">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_tim.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\Tasks\user_tasks.h" lastModified="15cafdf2340">
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_sai.h" lastModified="15cafdf2627">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\Tasks\TD_Sniffer.c" lastModified="15cafdf233b">
+         <include file="..\..\..\main.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\stm32f4xx.h" lastModified="15cafdf275d">
+         <include file="..\..\..\cmsis\core_cm4.h"/>
+         <include file="..\..\..\cmsis_boot\system_stm32f4xx.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_dac.h" lastModified="15cafdf25c9">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_dcmi.c" lastModified="15cafdf2686">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_dcmi.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_fmc.c" lastModified="15cafdf26e7">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_fmc.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_ltdc.c" lastModified="15cafdf2729">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_ltdc.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_hash_md5.c" lastModified="15cafdf2710">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_hash.h"/>
+      </source>
+      <source file="..\..\..\freertos\croutine.c" lastModified="15cafdf249e">
+         <include file="..\..\..\freertos\include\FreeRTOS.h"/>
+         <include file="..\..\..\freertos\include\task.h"/>
+         <include file="..\..\..\freertos\include\croutine.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_dma2d.h" lastModified="15cafdf25dd">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_dcmi.h" lastModified="15cafdf25d0">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_ltdc.h" lastModified="15cafdf260f">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_sai.c" lastModified="15cafdf2750">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_sai.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-Trace\Include\trcBase.h" lastModified="15cafdf2aba">
+         <include file="..\..\..\FreeRTOS-Plus-Trace\Include\trcKernelPort.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_flash.h" lastModified="15cafdf25e4">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_dac.c" lastModified="15cafdf267e">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_dac.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-Trace\Include\trcHardwarePort.h" lastModified="15cafdf3a60">
+         <include file="..\..\..\trcConfig.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_cryp_aes.c" lastModified="15cafdf266c">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_cryp.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_wwdg.h" lastModified="15cafdf2649">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\BSP\inc\stm32f429i_discovery_sdram.h" lastModified="15cafdf22c5">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\misc.h" lastModified="15cafdf25ad">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_dma2d.c" lastModified="15cafdf2698">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_dma2d.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\freertos\include\FreeRTOS.h" lastModified="15cafdf2c7d">
+         <include file="..\..\..\FreeRTOSConfig.h"/>
+         <include file="..\..\..\freertos\include\projdefs.h"/>
+         <include file="..\..\..\freertos\include\portable.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\system_stm32f4xx.h" lastModified="15cafdf2382">
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_usart.h" lastModified="15cafdf2647">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_cryp.c" lastModified="15cafdf2665">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_cryp.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\freertos\portable\GCC\ARM_CM4F\port.c" lastModified="15cafdf2504">
+         <include file="..\..\..\freertos\include\FreeRTOS.h"/>
+         <include file="..\..\..\freertos\include\task.h"/>
+      </source>
+      <source file="..\..\..\cmsis\core_cmInstr.h" lastModified="15cafdf2b33">
+      </source>
+      <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="15cafdf237d">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_flash.c" lastModified="15cafdf26da">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_flash.h"/>
+      </source>
+      <source file="..\..\..\freertos\include\portable.h" lastModified="15cafdf24d6">
+         <include file="..\..\..\freertos\include\deprecated_definitions.h"/>
+         <include file="..\..\..\freertos\portable\GCC\ARM_CM4F\portmacro.h"/>
+         <include file="..\..\..\freertos\include\mpu_wrappers.h"/>
+      </source>
+      <source file="..\..\..\freertos\portable\MemMang\heap_1.c" lastModified="15cafdf28f3">
+         <include file="..\..\..\freertos\include\FreeRTOS.h"/>
+         <include file="..\..\..\freertos\include\task.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-Trace\trcUser.c" lastModified="15cafdf2ede">
+         <include file="..\..\..\freertos\include\FreeRTOS.h"/>
+         <include file="..\..\..\freertos\include\task.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-Trace\Include\trcUser.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_cryp.h" lastModified="15cafdf25c3">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\freertos\event_groups.c" lastModified="15cafdf288d">
+         <include file="..\..\..\freertos\include\FreeRTOS.h"/>
+         <include file="..\..\..\freertos\include\task.h"/>
+         <include file="..\..\..\freertos\include\timers.h"/>
+         <include file="..\..\..\freertos\include\event_groups.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_usart.c" lastModified="15cafdf276e">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_usart.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_hash.c" lastModified="15cafdf2706">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_hash.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\fonts.h" lastModified="15cafdf287e">
+      </source>
+      <source file="..\..\..\freertos\include\projdefs.h" lastModified="15cafdf24d8">
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_hash.h" lastModified="15cafdf25ff">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\freertos\include\event_groups.h" lastModified="15cafdf24c5">
+         <include file="..\..\..\freertos\include\timers.h"/>
+      </source>
+      <source file="..\..\..\fonts.c" lastModified="15cafdf2495">
+         <include file="..\..\..\fonts.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\misc.c" lastModified="15cafdf264e">
+         <include file="..\..\..\stdperiph_lib\inc\misc.h"/>
+      </source>
+      <source file="..\..\..\stdio\printf.c" lastModified="15cafdf2d7b">
+      </source>
+      <source file="..\..\..\BSP\inc\stm32f429i_discovery.h" lastModified="15cafdf22b3">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\BSP\src\stm32f429i_discovery_ioe.c" lastModified="15cafdf22d3">
+         <include file="..\..\..\BSP\inc\stm32f429i_discovery_ioe.h"/>
+      </source>
+      <source file="..\..\..\cmsis\core_cmFunc.h" lastModified="15cafdf2b29">
+      </source>
+      <source file="..\..\..\Tasks\TD_Transceiver_RX.c" lastModified="15cafdf233f">
+         <include file="..\..\..\main.h"/>
+      </source>
+      <source file="..\..\..\BSP\src\stm32f429i_discovery_sdram.c" lastModified="15cafdf22e1">
+         <include file="..\..\..\BSP\inc\stm32f429i_discovery_sdram.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_fmc.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\stm32f4xx_conf.h" lastModified="15cafdf2376">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_adc.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_can.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_crc.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_cryp.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_dac.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_dbgmcu.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_dcmi.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_dma.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_exti.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_flash.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_ltdc.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_dma2d.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_fmc.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_hash.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_i2c.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_iwdg.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_pwr.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rng.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rtc.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_sdio.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_spi.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_syscfg.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_tim.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_usart.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_wwdg.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\misc.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-Trace\trcBase.c" lastModified="15cafdf2ae0">
+         <include file="..\..\..\FreeRTOS-Plus-Trace\Include\trcBase.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_hash_sha1.c" lastModified="15cafdf2715">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_hash.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_dma.h" lastModified="15cafdf25d7">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_spi.h" lastModified="15cafdf2634">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_exti.c" lastModified="15cafdf26ca">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_exti.h"/>
+      </source>
+      <source file="..\..\..\freertos\queue.c" lastModified="15cafdf2cf3">
+         <include file="..\..\..\freertos\include\FreeRTOS.h"/>
+         <include file="..\..\..\freertos\include\task.h"/>
+         <include file="..\..\..\freertos\include\queue.h"/>
+         <include file="..\..\..\freertos\include\croutine.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_dbgmcu.c" lastModified="15cafdf2680">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_dbgmcu.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-Trace\trcKernelPort.c" lastModified="15cafdf2707">
+         <include file="..\..\..\FreeRTOS-Plus-Trace\Include\trcKernelPort.h"/>
+         <include file="..\..\..\freertos\include\task.h"/>
+      </source>
+      <source file="..\..\..\freertos\tasks.c" lastModified="15cafdf34ca">
+         <include file="..\..\..\freertos\include\FreeRTOS.h"/>
+         <include file="..\..\..\freertos\include\task.h"/>
+         <include file="..\..\..\freertos\include\timers.h"/>
+         <include file="..\..\..\freertos\include\StackMacros.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-Trace\Include\trcKernelHooks.h" lastModified="15cafdf22fb">
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h" lastModified="15cafdf2618">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\BSP\src\stm32f429i_discovery_lcd.c" lastModified="15cafdf22dc">
+         <include file="..\..\..\BSP\inc\stm32f429i_discovery_lcd.h"/>
+         <include file="..\..\..\fonts.c"/>
+      </source>
+      <source file="..\..\..\BSP\src\stm32f429i_discovery.c" lastModified="15cafdf22cc">
+         <include file="..\..\..\BSP\inc\stm32f429i_discovery.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\startup\startup_stm32f429_439xx.s" lastModified="15cafdf2369">
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_exti.h" lastModified="15cafdf25de">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_spi.c" lastModified="15cafdf275b">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_spi.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_dma.c" lastModified="15cafdf2690">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_dma.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\cmsis\core_cm4_simd.h" lastModified="15cafdf2b1f">
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_rcc.c" lastModified="15cafdf2736">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_cryp_des.c" lastModified="15cafdf2671">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_cryp.h"/>
+      </source>
+      <source file="..\..\..\freertos\include\list.h" lastModified="15cafdf24cb">
+      </source>
+      <source file="..\..\..\FreeRTOSConfig.h" lastModified="15cafdf2711">
+         <include file="..\..\..\FreeRTOS-Plus-Trace\Include\trcKernelPort.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-Trace\Include\trcKernelPort.h" lastModified="15cafdf2300">
+         <include file="..\..\..\freertos\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-Trace\Include\trcHardwarePort.h"/>
+         <include file="..\..\..\trcConfig.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-Trace\Include\trcHardwarePort.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-Trace\Include\trcTypes.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-Trace\Include\trcKernelHooks.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-Trace\Include\trcBase.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-Trace\Include\trcKernel.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-Trace\Include\trcUser.h"/>
+      </source>
+      <source file="..\..\..\freertos\include\task.h" lastModified="15cafdf24ef">
+         <include file="..\..\..\freertos\include\list.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_rng.h" lastModified="15cafdf261a">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\main.h" lastModified="15cafdf2586">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\BSP\inc\stm32f429i_discovery.h"/>
+         <include file="..\..\..\BSP\inc\stm32f429i_discovery_sdram.h"/>
+         <include file="..\..\..\BSP\inc\stm32f429i_discovery_ioe.h"/>
+         <include file="..\..\..\FreeRTOSConfig.h"/>
+         <include file="..\..\..\freertos\include\FreeRTOS.h"/>
+         <include file="..\..\..\freertos\include\task.h"/>
+         <include file="..\..\..\freertos\include\timers.h"/>
+         <include file="..\..\..\freertos\include\semphr.h"/>
+         <include file="..\..\..\freertos\include\queue.h"/>
+      </source>
+      <source file="..\..\..\freertos\include\mpu_wrappers.h" lastModified="15cafdf24d1">
+      </source>
+      <source file="..\..\..\main.c" lastModified="15cafdf2585">
+         <include file="..\..\..\main.h"/>
+         <include file="..\..\..\Tasks\user_tasks.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-Trace\Include\trcKernel.h" lastModified="15cafdf22f2">
+         <include file="..\..\..\FreeRTOS-Plus-Trace\Include\trcKernelPort.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_crc.h" lastModified="15cafdf25bd">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\inc\stm32f4xx_adc.h" lastModified="15cafdf25b4">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\BSP\inc\stm32f429i_discovery_ioe.h" lastModified="15cafdf22bd">
+         <include file="..\..\..\BSP\inc\stm32f429i_discovery.h"/>
+         <include file="..\..\..\main.h"/>
+      </source>
+      <source file="..\..\..\freertos\include\queue.h" lastModified="15cafdf24e0">
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_rng.c" lastModified="15cafdf273c">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rng.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\stdperiph_lib\src\stm32f4xx_syscfg.c" lastModified="15cafdf2761">
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_syscfg.h"/>
+         <include file="..\..\..\stdperiph_lib\inc\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\freertos\timers.c" lastModified="15cafdf291b">
+         <include file="..\..\..\freertos\include\FreeRTOS.h"/>
+         <include file="..\..\..\freertos\include\task.h"/>
+         <include file="..\..\..\freertos\include\queue.h"/>
+         <include file="..\..\..\freertos\include\timers.h"/>
+      </source>
+   </includePath>
+</dependencies>
