@@ -27,11 +27,12 @@
 <part id="6"/>
 <part id="7"/>
 <part id="8"/>
+<part id="9"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/CooCox/CoIDE/workspace/projet_reseau/main.c" title="main.c" tooltip="C:/CooCox/CoIDE/workspace/projet_reseau/main.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/N.Desvignes/Cours/SE10/projet_reseau/main.c" title="main.c" tooltip="C:/Users/N.Desvignes/Cours/SE10/projet_reseau/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITSPLC_FreeRTOS/main.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="630" selectionTopPixel="546"/>
 </editor>
@@ -67,6 +68,10 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITSPLC_FreeRTOS/FreeRTOSConfig.h"/>
 <editorState selectionHorizontalPixel="0" selectionLength="4" selectionOffset="4788" selectionTopPixel="1229"/>
 </editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="CAN_Decode.c" partName="CAN_Decode.c" path="C:/Users/N.Desvignes/Cours/SE10/projet_reseau/Lib/CAN_Decode.c" title="CAN_Decode.c" tooltip="C:/Users/N.Desvignes/Cours/SE10/projet_reseau/Lib/CAN_Decode.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITSPLC_FreeRTOS/Lib/CAN_Decode.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="3650"/>
+</editor>
 </editors>
 <views>
 <view id="org.eclipse.debug.ui.ExpressionView" partName="Expressions">
@@ -75,15 +80,14 @@
 </viewState>
 </view>
 <view id="org.coocox.builder.ui.views.ProjectView" partName="Project">
-<viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="11">
+<viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0">
 <expanded>
 <element path="/ITSPLC_FreeRTOS"/>
-<element path="/ITSPLC_FreeRTOS/FreeRTOS"/>
-<element path="/ITSPLC_FreeRTOS/FreeRTOS/include"/>
+<element path="/ITSPLC_FreeRTOS/Lib"/>
 <element path="/ITSPLC_FreeRTOS/Tasks"/>
 </expanded>
 <selection>
-<element path="/ITSPLC_FreeRTOS/FreeRTOS/include/FreeRTOS.h"/>
+<element path="/ITSPLC_FreeRTOS/Lib/CAN_Decode.c"/>
 </selection>
 </viewState>
 </view>
@@ -110,15 +114,12 @@
 <view id="org.eclipse.debug.ui.VariableView" partName="Variables">
 <viewState/>
 </view>
-<view id="org.coocox.component.ui.Help" partName="Help">
-<viewState/>
-</view>
 <view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
 <viewState/>
 </view>
 </views>
 <perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="org.coocox.builder.perspective.CoBuilder">
-<perspective editorAreaTrimState="1" editorAreaVisible="1" fixed="0" version="0.016">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.coocox.builder.ui.PerspectiveCoBuilder" id="org.coocox.builder.perspective.CoBuilder" label="CooCox CoBuilder"/>
 <alwaysOnActionSet id="org.coocox.component.ui.actionSet"/>
 <alwaysOnActionSet id="org.coocox.welcome.ui.actionSet"/>
@@ -147,18 +148,9 @@
 <hide_toolbar_item_id id="org.eclipse.cdt.debug.internal.ui.actions.ToggleInstructionStepModeAction"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.eclipse.debug.ui.commands.TerminateAndRelaunch"/>
+<view id="org.coocox.builder.ui.views.ProjectView"/>
 <fastViewBars>
-<fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@1d64832" orientation="256" selectedTabId="org.coocox.component.ui.Help" style="1">
-<fastViews>
-<view id="org.coocox.component.ui.Help" ratio="0.3"/>
-</fastViews>
-</fastViewBar>
-<fastViewBar fastViewLocation="16384" id="org.eclipse.ui.internal.ViewStack@89634c" orientation="256" selectedTabId="org.coocox.builder.ui.views.ProjectView" style="1">
-<fastViews>
-<view id="org.coocox.builder.ui.views.ProjectView" ratio="0.2984127"/>
-</fastViews>
-</fastViewBar>
-<fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@1958a9f" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="1">
+<fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@1958a9f" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="0">
 <fastViews>
 <view id="org.eclipse.ui.console.ConsoleView" ratio="0.5873016"/>
 </fastViews>
@@ -179,7 +171,7 @@
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@1958a9f" ratio="0.5550239" ratioLeft="348" ratioRight="279" relationship="4" relative="org.eclipse.ui.internal.ViewStack@f5e10a">
-<folder appearance="2" expanded="2">
+<folder appearance="2" expanded="0">
 <page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
@@ -197,9 +189,11 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.4489093" ratioLeft="391" ratioRight="480" relationship="4" relative="org.coocox.builder.ui.exampleView"/>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@89634c" ratio="0.36969" ratioLeft="322" ratioRight="549" relationship="4" relative="org.eclipse.ui.internal.ViewStack@f5e10a">
-<folder appearance="2" expanded="2">
-<page content="org.coocox.builder.ui.views.ProjectView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<folder activePageID="org.coocox.builder.ui.views.ProjectView" appearance="2" expanded="2">
+<page content="org.coocox.builder.ui.views.ProjectView" label="Project"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
 </folder>
 </info>
 </mainWindow>
@@ -340,10 +334,8 @@
 <org.coocox.welcome.ui.WelcomePage/>
 </editor>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ITSPLC_FreeRTOS/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/ITSPLC_FreeRTOS/Lib/CAN_Decode.c"/>
 </editors>
-<item historyLabel="user_tasks.h" index="2">
-<position info="not_deleted" x="274" y="0"/>
-</item>
 <item historyLabel="main.h" index="1">
 <position info="not_deleted" x="1139" y="0"/>
 </item>
@@ -482,8 +474,11 @@
 <item historyLabel="Configuration" index="16"/>
 <item historyLabel="Configuration" index="17"/>
 <item historyLabel="welcome" index="18"/>
-<item active="true" historyLabel="main.c" index="19">
+<item historyLabel="main.c" index="19">
 <position info="not_deleted" x="630" y="0"/>
+</item>
+<item active="true" historyLabel="CAN_Decode.c" index="20">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -492,51 +487,50 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" name="startup_stm32f0xx.s" tooltip="RFID_Etagere/cmsis_boot/startup/startup_stm32f0xx.s">
-<persistable path="/RFID_Etagere/cmsis_boot/startup/startup_stm32f0xx.s"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="CAN_Decode.c" tooltip="ITSPLC_FreeRTOS/Lib/CAN_Decode.c">
+<persistable path="/ITSPLC_FreeRTOS/Lib/CAN_Decode.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f0xx_gpio.h" tooltip="RFID_Etagere/cmsis_lib/include/stm32f0xx_gpio.h">
-<persistable path="/RFID_Etagere/cmsis_lib/include/stm32f0xx_gpio.h"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="CAN_Decode.c" tooltip="C:\Users\N.Desvignes\Cours\SE10\projet_reseau\Lib\CAN_Decode.c">
+<persistable uri="file:/C:/Users/N.Desvignes/Cours/SE10/projet_reseau/Lib/CAN_Decode.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f0xx_spi.h" tooltip="RFID_Etagere/cmsis_lib/include/stm32f0xx_spi.h">
-<persistable path="/RFID_Etagere/cmsis_lib/include/stm32f0xx_spi.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="drv_I2C_M24SR_mbed.cpp" tooltip="Nucleo_NFC_Example/sources/NUCLEO-NFC01A1/drv_I2C_M24SR_mbed.cpp">
+<persistable path="/Nucleo_NFC_Example/sources/NUCLEO-NFC01A1/drv_I2C_M24SR_mbed.cpp"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f0xx_spi.c" tooltip="RFID_Etagere/cmsis_lib/source/stm32f0xx_spi.c">
-<persistable path="/RFID_Etagere/cmsis_lib/source/stm32f0xx_spi.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="drv_I2C_M24SR.h" tooltip="Nucleo_NFC_Example/headers/NUCLEO-NFC01A1/drv_I2C_M24SR.h">
+<persistable path="/Nucleo_NFC_Example/headers/NUCLEO-NFC01A1/drv_I2C_M24SR.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="PN532.c" tooltip="RFID_Etagere/PN532.c">
-<persistable path="/RFID_Etagere/PN532.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lib_M24SR.c" tooltip="Nucleo_NFC_Example/sources/lib_NFC_M24SR/lib_M24SR.c">
+<persistable path="/Nucleo_NFC_Example/sources/lib_NFC_M24SR/lib_M24SR.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="PN532.h" tooltip="RFID_Etagere/PN532.h">
-<persistable path="/RFID_Etagere/PN532.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="PeripheralPins.h" tooltip="Nucleo_NFC_Example/headers/mbed/TARGET_NUCLEO_F401RE/TARGET_STM/TARGET_NUCLEO_F401RE/PeripheralPins.h">
+<persistable path="/Nucleo_NFC_Example/headers/mbed/TARGET_NUCLEO_F401RE/TARGET_STM/TARGET_NUCLEO_F401RE/PeripheralPins.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f0xx_gpio.c" tooltip="RFID_Etagere/cmsis_lib/source/stm32f0xx_gpio.c">
-<persistable path="/RFID_Etagere/cmsis_lib/source/stm32f0xx_gpio.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="PeripheralNames.h" tooltip="Nucleo_NFC_Example/headers/mbed/TARGET_NUCLEO_F401RE/TARGET_STM/TARGET_NUCLEO_F401RE/PeripheralNames.h">
+<persistable path="/Nucleo_NFC_Example/headers/mbed/TARGET_NUCLEO_F401RE/TARGET_STM/TARGET_NUCLEO_F401RE/PeripheralNames.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="system_stm32f0xx.c" tooltip="RFID_Etagere/cmsis_boot/system_stm32f0xx.c">
-<persistable path="/RFID_Etagere/cmsis_boot/system_stm32f0xx.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="gpio_object.h" tooltip="Nucleo_NFC_Example/headers/mbed/TARGET_NUCLEO_F401RE/TARGET_STM/TARGET_NUCLEO_F401RE/gpio_object.h">
+<persistable path="/Nucleo_NFC_Example/headers/mbed/TARGET_NUCLEO_F401RE/TARGET_STM/TARGET_NUCLEO_F401RE/gpio_object.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f0xx_rcc.c" tooltip="RFID_Etagere/cmsis_lib/source/stm32f0xx_rcc.c">
-<persistable path="/RFID_Etagere/cmsis_lib/source/stm32f0xx_rcc.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_hal_conf.h" tooltip="Nucleo_NFC_Example/headers/mbed/TARGET_NUCLEO_F401RE/stm32f4xx_hal_conf.h">
+<persistable path="/Nucleo_NFC_Example/headers/mbed/TARGET_NUCLEO_F401RE/stm32f4xx_hal_conf.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f0xx_rcc.h" tooltip="RFID_Etagere/cmsis_lib/include/stm32f0xx_rcc.h">
-<persistable path="/RFID_Etagere/cmsis_lib/include/stm32f0xx_rcc.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="mbed_config.h" tooltip="Nucleo_NFC_Example/headers/mbed_config.h">
+<persistable path="/Nucleo_NFC_Example/headers/mbed_config.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f0xx.h" tooltip="RFID_Etagere/cmsis_boot/stm32f0xx.h">
-<persistable path="/RFID_Etagere/cmsis_boot/stm32f0xx.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lib_NDEF_MyApp.c" tooltip="Nucleo_NFC_Example/sources/lib_NFC_NDEF/lib_NDEF_MyApp.c">
+<persistable path="/Nucleo_NFC_Example/sources/lib_NFC_NDEF/lib_NDEF_MyApp.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="RFID_Etagere/main.c">
-<persistable path="/RFID_Etagere/main.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lib_NDEF_MyApp.h" tooltip="Nucleo_NFC_Example/headers/lib_NFC_NDEF/lib_NDEF_MyApp.h">
+<persistable path="/Nucleo_NFC_Example/headers/lib_NFC_NDEF/lib_NDEF_MyApp.h"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="ITSPLC_FreeRTOS.coproj" tooltip="C:\CooCox\projet_reseau\Projet_RTOS-master\Projet_RTOS-master\ITSPLC_FreeRTOS.coproj">
-<persistable uri="file:/C:/CooCox/projet_reseau/Projet_RTOS-master/Projet_RTOS-master/ITSPLC_FreeRTOS.coproj"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lib_TagType4.c" tooltip="Nucleo_NFC_Example/sources/lib_NFC_NDEF/lib_TagType4.c">
+<persistable path="/Nucleo_NFC_Example/sources/lib_NFC_NDEF/lib_TagType4.c"/>
 </file>
-<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
-<persistable>&#x0A;<subPage/>
-</persistable>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lib_NDEF.c" tooltip="Nucleo_NFC_Example/sources/lib_NFC_NDEF/lib_NDEF.c">
+<persistable path="/Nucleo_NFC_Example/sources/lib_NFC_NDEF/lib_NDEF.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="task.h" tooltip="ITSPLC_FreeRTOS/FreeRTOS/include/task.h">
-<persistable path="/ITSPLC_FreeRTOS/FreeRTOS/include/task.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="lib_NDEF_URI.c" tooltip="Nucleo_NFC_Example/sources/lib_NFC_NDEF/lib_NDEF_URI.c">
+<persistable path="/Nucleo_NFC_Example/sources/lib_NFC_NDEF/lib_NDEF_URI.c"/>
 </file>
 </mruList>
 </workbench>

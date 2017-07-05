@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
+<<<<<<< HEAD
    <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F429ZI -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -D__FPU_USED -I..\..\..\workspace\projet_reseau\cmsis -I..\..\..\workspace\projet_reseau\freertos -I..\..\..\workspace\projet_reseau\Tasks -I..\..\..\workspace\projet_reseau\FreeRTOS-Plus-Trace -I..\..\..\workspace\projet_reseau\freertos\include -I..\..\..\workspace\projet_reseau\freertos\portable -I..\..\..\workspace\projet_reseau\FreeRTOS-Plus-Trace\Include -I..\..\..\workspace\projet_reseau\stdperiph_lib\inc -I..\..\..\workspace\projet_reseau\cmsis_boot -I..\..\..\workspace -I..\..\..\workspace\projet_reseau\freertos\portable\GCC\ARM_CM4F -I..\..\..\workspace\projet_reseau\BSP\inc -I..\..\..\workspace\projet_reseau\freertos\portable\GCC -I..\..\.. -I..\..\..\workspace\projet_reseau\stdperiph_lib -I..\..\..\workspace\projet_reseau\BSP -I..\..\..\workspace\projet_reseau">
       <target file="stm32f4xx_cryp_aes.o" lastModified="15cb00874ef">
          <source file="..\..\..\stdperiph_lib\src\stm32f4xx_cryp_aes.c" lastModified="15cafdf266c"/>
@@ -174,6 +175,182 @@
       </target>
       <target file="heap_1.o" lastModified="15cb0088bf2">
          <source file="..\..\..\freertos\portable\MemMang\heap_1.c" lastModified="15cafdf250b"/>
+=======
+   <processor signature="arm-none-eabi-gcc 4.8.1 mingw32 -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F429ZI -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -D__FPU_USED -I..\..\..\..\..\Users\N.Desvignes\Cours\SE10\projet_reseau\freertos\portable\GCC -I..\..\..\..\..\Users\N.Desvignes\Cours\SE10\projet_reseau\Tasks -I..\..\..\..\..\Users\N.Desvignes\Cours\SE10\projet_reseau\stdperiph_lib -I..\..\..\..\..\Users\N.Desvignes\Cours\SE10\projet_reseau\cmsis_boot -I..\..\..\..\..\Users\N.Desvignes\Cours\SE10\projet_reseau\freertos\portable\GCC\ARM_CM4F -I..\..\..\..\..\Users\N.Desvignes\Cours\SE10\projet_reseau\FreeRTOS-Plus-Trace -I..\..\..\..\..\Users\N.Desvignes\Cours\SE10 -I..\..\..\..\..\Users\N.Desvignes\Cours -I..\..\..\..\..\Users\N.Desvignes\Cours\SE10\projet_reseau\cmsis -I..\..\..\..\..\Users\N.Desvignes\Cours\SE10\projet_reseau\freertos -I..\..\..\..\..\Users\N.Desvignes\Cours\SE10\projet_reseau\freertos\portable -I..\..\..\..\..\Users\N.Desvignes\Cours\SE10\projet_reseau\stdperiph_lib\inc -I..\..\..\..\..\Users\N.Desvignes\Cours\SE10\projet_reseau\BSP\inc -I..\..\..\..\..\Users\N.Desvignes\Cours\SE10\projet_reseau\BSP -I..\..\..\..\..\Users\N.Desvignes\Cours\SE10\projet_reseau\freertos\include -I..\..\..\..\..\Users\N.Desvignes\Cours\SE10\projet_reseau\FreeRTOS-Plus-Trace\Include -I..\..\..\..\..\Users\N.Desvignes\Cours\SE10\projet_reseau">
+      <target file="stm32f4xx_cryp_aes.o" lastModified="15cafe8e302">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_cryp_aes.c" lastModified="15c8cbc641d"/>
+      </target>
+      <target file="trcUser.o" lastModified="15cafe8fbe1">
+         <source file="..\..\..\FreeRTOS-Plus-Trace\trcUser.c" lastModified="15c8cbc601d"/>
+      </target>
+      <target file="misc.o" lastModified="15cafe90634">
+         <source file="..\..\..\stdperiph_lib\src\misc.c" lastModified="15c8cbc63fa"/>
+      </target>
+      <target file="stm32f4xx_ltdc.o" lastModified="15cafe8e9f0">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_ltdc.c" lastModified="15c8cbc6481"/>
+      </target>
+      <target file="trcKernel.o" lastModified="15cafe8dfb1">
+         <source file="..\..\..\FreeRTOS-Plus-Trace\trcKernel.c" lastModified="15c8cbc600d"/>
+      </target>
+      <target file="stm32f429i_discovery.o" lastModified="15cafe90a5d">
+         <source file="..\..\..\BSP\src\stm32f429i_discovery.c" lastModified="15c8cbc5fb9"/>
+      </target>
+      <target file="stm32f4xx_cryp.o" lastModified="15cafe8f504">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_cryp.c" lastModified="15c8cbc641c"/>
+      </target>
+      <target file="queue.o" lastModified="15cafe8ff26">
+         <source file="..\..\..\freertos\queue.c" lastModified="15c8cbc61f3"/>
+      </target>
+      <target file="stm32f4xx_cryp_des.o" lastModified="15cafe8f43a">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_cryp_des.c" lastModified="15c8cbc641d"/>
+      </target>
+      <target file="stm32f4xx_tim.o" lastModified="15cafe90e89">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_tim.c" lastModified="15c8cbc64c0"/>
+      </target>
+      <target file="timers.o" lastModified="15cafe8ef23">
+         <source file="..\..\..\freertos\timers.c" lastModified="15c8cbc6203"/>
+      </target>
+      <target file="stm32f4xx_exti.o" lastModified="15cafe904db">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_exti.c" lastModified="15c8cbc644c"/>
+      </target>
+      <target file="stm32f4xx_iwdg.o" lastModified="15cafe8eb76">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_iwdg.c" lastModified="15c8cbc6481"/>
+      </target>
+      <target file="tasks.o" lastModified="15cafe8f36d">
+         <source file="..\..\..\freertos\tasks.c" lastModified="15c8cbc6203"/>
+      </target>
+      <target file="stm32f4xx_gpio.o" lastModified="15cafe8f6f9">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_gpio.c" lastModified="15c8cbc645c"/>
+      </target>
+      <target file="trcBase.o" lastModified="15cafe8ed34">
+         <source file="..\..\..\FreeRTOS-Plus-Trace\trcBase.c" lastModified="15c8cbc5ffe"/>
+      </target>
+      <target file="trcHardwarePort.o" lastModified="15cafe9058d">
+         <source file="..\..\..\FreeRTOS-Plus-Trace\trcHardwarePort.c" lastModified="15c8cbc600d"/>
+      </target>
+      <target file="stm32f4xx_usart.o" lastModified="15cafe8e5ba">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_usart.c" lastModified="15c8cbc64c0"/>
+      </target>
+      <target file="stm32f4xx_rtc.o" lastModified="15cafe9093e">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_rtc.c" lastModified="15c8cbc64a1"/>
+      </target>
+      <target file="event_groups.o" lastModified="15cafe90254">
+         <source file="..\..\..\freertos\event_groups.c" lastModified="15c8cbc617f"/>
+      </target>
+      <target file="stm32f4xx_hash_sha1.o" lastModified="15cafe8e4c7">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_hash_sha1.c" lastModified="15c8cbc646b"/>
+      </target>
+      <target file="stm32f4xx_rcc.o" lastModified="15cafe8ee0d">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_rcc.c" lastModified="15c8cbc6491"/>
+      </target>
+      <target file="stm32f429i_discovery_ioe.o" lastModified="15cafe8e0d2">
+         <source file="..\..\..\BSP\src\stm32f429i_discovery_ioe.c" lastModified="15c8cbc5fcd"/>
+      </target>
+      <target file="stm32f4xx_dac.o" lastModified="15cafe8e91b">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_dac.c" lastModified="15c8cbc642d"/>
+      </target>
+      <target file="stm32f4xx_can.o" lastModified="15cafe8e72f">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_can.c" lastModified="15c8cbc6409"/>
+      </target>
+      <target file="stm32f4xx_pwr.o" lastModified="15cafe8e67f">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_pwr.c" lastModified="15c8cbc6481"/>
+      </target>
+      <target file="croutine.o" lastModified="15cafe9009a">
+         <source file="..\..\..\freertos\croutine.c" lastModified="15c8cbc616f"/>
+      </target>
+      <target file="stm32f429i_discovery_sdram.o" lastModified="15cafe8f7b7">
+         <source file="..\..\..\BSP\src\stm32f429i_discovery_sdram.c" lastModified="15c8cbc5fcf"/>
+      </target>
+      <target file="stm32f4xx_wwdg.o" lastModified="15cafe8e7a4">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_wwdg.c" lastModified="15c8cbc64c0"/>
+      </target>
+      <target file="stm32f4xx_rng.o" lastModified="15cafe90440">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_rng.c" lastModified="15c8cbc6491"/>
+      </target>
+      <target file="stm32f4xx_adc.o" lastModified="15cafe8f017">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_adc.c" lastModified="15c8cbc6409"/>
+      </target>
+      <target file="list.o" lastModified="15cafe8f914">
+         <source file="..\..\..\freertos\list.c" lastModified="15c8cbc61d4"/>
+      </target>
+      <target file="stm32f4xx_flash.o" lastModified="15cafe8f879">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_flash.c" lastModified="15c8cbc644c"/>
+      </target>
+      <target file="port.o" lastModified="15cafe8fd76">
+         <source file="..\..\..\freertos\portable\GCC\ARM_CM4F\port.c" lastModified="15c8cbc61d4"/>
+      </target>
+      <target file="CAN_Decode.o" lastModified="15cafe8f5cf">
+         <source file="..\..\..\Lib\CAN_Decode.c" lastModified="15cafcf4f0d"/>
+      </target>
+      <target file="startup_stm32f429_439xx.o" lastModified="15cafe900b2">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f429_439xx.s" lastModified="15c8cbc6071"/>
+      </target>
+      <target file="stm32f4xx_cryp_tdes.o" lastModified="15cafe90ce6">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_cryp_tdes.c" lastModified="15c8cbc642d"/>
+      </target>
+      <target file="stm32f4xx_dma.o" lastModified="15cafe8fb05">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_dma.c" lastModified="15c8cbc643c"/>
+      </target>
+      <target file="stm32f4xx_dcmi.o" lastModified="15cafe8f129">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_dcmi.c" lastModified="15c8cbc642d"/>
+      </target>
+      <target file="TD_Sniffer.o" lastModified="15cafe8f1b3">
+         <source file="..\..\..\Tasks\TD_Sniffer.c" lastModified="15c9b23056b"/>
+      </target>
+      <target file="stm32f4xx_sai.o" lastModified="15cafe8f9bb">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_sai.c" lastModified="15c8cbc64a1"/>
+      </target>
+      <target file="stm32f4xx_crc.o" lastModified="15cafe8eab7">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_crc.c" lastModified="15c8cbc6409"/>
+      </target>
+      <target file="printf.o" lastModified="15cafe8f0a2">
+         <source file="..\..\..\stdio\printf.c" lastModified="15c8cbc634f"/>
+      </target>
+      <target file="stm32f4xx_sdio.o" lastModified="15cafe8e1df">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_sdio.c" lastModified="15c8cbc64b0"/>
+      </target>
+      <target file="trcKernelPort.o" lastModified="15cafe8fff6">
+         <source file="..\..\..\FreeRTOS-Plus-Trace\trcKernelPort.c" lastModified="15c8cbc600d"/>
+      </target>
+      <target file="stm32f4xx_hash_md5.o" lastModified="15cafe8e84f">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_hash_md5.c" lastModified="15c8cbc646b"/>
+      </target>
+      <target file="stm32f4xx_dbgmcu.o" lastModified="15cafe90f25">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_dbgmcu.c" lastModified="15c8cbc642d"/>
+      </target>
+      <target file="stm32f4xx_i2c.o" lastModified="15cafe9030e">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_i2c.c" lastModified="15c8cbc647c"/>
+      </target>
+      <target file="stm32f4xx_syscfg.o" lastModified="15cafe8ddcf">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_syscfg.c" lastModified="15c8cbc64b0"/>
+      </target>
+      <target file="stm32f4xx_hash.o" lastModified="15cafe8e3b4">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_hash.c" lastModified="15c8cbc646b"/>
+      </target>
+      <target file="stm32f429i_discovery_lcd.o" lastModified="15cafe90c28">
+         <source file="..\..\..\BSP\src\stm32f429i_discovery_lcd.c" lastModified="15c8cbc5fcf"/>
+      </target>
+      <target file="stm32f4xx_spi.o" lastModified="15cafe90188">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_spi.c" lastModified="15c8cbc64b0"/>
+      </target>
+      <target file="stm32f4xx_fmc.o" lastModified="15cafe8fcc8">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_fmc.c" lastModified="15c8cbc644c"/>
+      </target>
+      <target file="main.o" lastModified="15cafe8ec36">
+         <source file="..\..\..\main.c" lastModified="15c9b2308bc"/>
+      </target>
+      <target file="stm32f4xx_dma2d.o" lastModified="15cafe8e440">
+         <source file="..\..\..\stdperiph_lib\src\stm32f4xx_dma2d.c" lastModified="15c8cbc643c"/>
+      </target>
+      <target file="system_stm32f4xx.o" lastModified="15cafe8fa6d">
+         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="15c8cbc6081"/>
+      </target>
+      <target file="heap_1.o" lastModified="15cafe907f9">
+         <source file="..\..\..\freertos\portable\MemMang\heap_1.c" lastModified="15c8cbc61e3"/>
+      </target>
+      <target file="TD_Transceiver_RX.o" lastModified="15cafe903c1">
+         <source file="..\..\..\Tasks\TD_Transceiver_RX.c" lastModified="15c9b230573"/>
+>>>>>>> origin/master
       </target>
    </processor>
 </history>
