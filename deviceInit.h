@@ -1,4 +1,4 @@
 #pragma once
 
-void InitPushButton( void );
+void InitTransceiverRX( void );
 void InitTimer( void );

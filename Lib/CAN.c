@@ -14,13 +14,13 @@ static inline void initialize( tCAN_msg* msg )
 	msg->isValid = 0u;
 }
 
-static inline uint8_t getBit( uint8_t* octet, uint8_t* bitIndex )
+static inline uint8_t getBit( uint8_t octet, uint8_t bitIndex )
 {
 	uint8_t output = 0u;
 
-	if ( *bitIndex < 8u )
+	if ( bitIndex < 8u )
 	{
-		output = ( ( *octet & ( 0x01u << *bitIndex ) ) >> *bitIndex );
+		output = ( ( octet & ( 0x01u << bitIndex ) ) >> bitIndex );
 	}
 	return( output );
 }
@@ -44,21 +44,19 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 
 	while ( ( step < max_step ) && ( step != -1 ) )
 	{
-		uint8_t bit = getBit( &( octet[octetIndex] ), &bitIndex );
-
-		bitIndex--;
+		uint8_t bit = getBit( octet[octetIndex], bitIndex );
 
 		if ( 0u == bitIndex )
 		{
 			bitIndex = 7u;
 			octetIndex++;
 		}
-		/*else
+		else
 		{
 			bitIndex--;
-		}*/
+		}
 
-		if ( step <= 5u ) //Bit stuffing uniquement avant CRC
+		if ( step <= 5u ) //Bit stuffing jusqu'au CRC
 		{
 			if ( previousBit == bit )
 			{
@@ -82,7 +80,7 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 		{
 			case 0: // SOT
 			{
-				if ( 1u == bit )
+				if ( DOMINANT == bit )
 				{
 					step++;
 				}
@@ -134,20 +132,17 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 			}
 			case 4: // Champ de bits
 			{
-				if ( dataIndex > 0u )
-				{
-					msg->data[ dataIndex ] += ( bit << bitIndex );
+				msg->data[ dataIndex ] += ( bit << bitIndex );
 
-					if ( 0u == bitIndex )
+				if ( 0u == bitIndex )
+				{
+					if ( 0u == dataIndex )
 					{
-						if ( 0u == dataIndex )
-						{
-							step++;
-						}
-						else
-						{
-							dataIndex--;
-						}
+						step++;
+					}
+					else
+					{
+						dataIndex--;
 					}
 				}
 
@@ -168,7 +163,7 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 			}
 			case 6: // delimiteur
 			{
-				if (bit == 0) {
+				if ( RECESSIVE == bit ) {
 					step++;
 				}
 				else {
@@ -185,7 +180,7 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 				}
 				else
 				{
-					if (bit == 0)
+					if ( RECESSIVE == bit )
 					{
 						step++;
 					}
@@ -199,7 +194,7 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 			}
 			case 8: // EOT
 			{
-				if (bit == 0)
+				if ( RECESSIVE == bit )
 				{
 					eotBitCount++;
 
@@ -217,7 +212,7 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 			}
 			case 9: // Intertrame
 			{
-				if ( 0u == bit )
+				if ( RECESSIVE == bit )
 				{
 					intertrameBitCount++;
 
@@ -245,7 +240,7 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 	}
 }
 
-static void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size )
+void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size )
 {
 	if (msg != (tCAN_msg*)0)
 	{
@@ -265,13 +260,13 @@ static void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size )
 			uint8_t dataOctetIndex = msg->dataLength;
 			uint8_t dataIndex = 7u;
 
-			while (step < 4) //maxStep)
+			while ( step <= 11 ) //maxStep)
 			{
 				switch (step)
 				{
 					case 0: // SOT
 					{
-						bit = 1u;
+						bit = DOMINANT;
 
 						step++;
 
@@ -279,7 +274,7 @@ static void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size )
 					}
 					case 1: // ID
 					{
-						bit = getBit(msg->ID, lengthIndex);
+						bit = getBit( msg->ID, lengthIndex );
 
 						if (lengthIndex == 0u)
 						{
@@ -301,7 +296,7 @@ static void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size )
 					}
 					case 3: // R0
 					{
-						bit = 0u;
+						bit = DOMINANT;
 
 						step++;
 
@@ -309,7 +304,7 @@ static void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size )
 					}
 					case 4: // R1
 					{
-						bit = 0u;
+						bit = DOMINANT;
 
 						step++;
 
@@ -317,7 +312,7 @@ static void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size )
 					}
 					case 5: // DLC
 					{
-						bit = getBit(msg->dataLength, dataLengthIndex);
+						bit = getBit( msg->dataLength, dataLengthIndex );
 
 						if (dataLengthIndex == 0u)
 						{
@@ -331,7 +326,7 @@ static void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size )
 					}
 					case 6: // Data
 					{
-						bit = getBit(msg->data[dataOctetIndex], dataIndex);
+						bit = getBit( msg->data[dataOctetIndex], dataIndex );
 
 						if (dataIndex == 0u)
 						{
@@ -355,7 +350,7 @@ static void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size )
 					}
 					case 7: // CRC
 					{
-						bit = getBit(msg->crc, crcIndex);
+						bit = getBit( msg->crc, crcIndex );
 
 						if (crcIndex == 0u)
 						{
@@ -370,25 +365,25 @@ static void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size )
 					}
 					case 8: // Délimiteur
 					{
-						bit = 0u;
+						bit = RECESSIVE;
 
 						break;
 					}
 					case 9: // ACK
 					{
-						bit = 1u;
+						bit = RECESSIVE;
 
 						break;
 					}
 					case 10: // Délimiteur
 					{
-						bit = 0u;
+						bit = RECESSIVE;
 
 						break;
 					}
 					case 11: // EOF + Intertrame
 					{
-						bit = 0u;
+						bit = RECESSIVE;
 
 						if (eofIndex == 0u)
 						{
@@ -402,7 +397,7 @@ static void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size )
 					}
 				}
 
-				if (step < 6) // Ajout bitstuffing avant CRC
+				if ( step <= 7 ) // Ajout bitstuffing avant CRC
 				{
 					if (consecutiveBitCount == 5u)
 					{

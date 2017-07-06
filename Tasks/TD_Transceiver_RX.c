@@ -2,18 +2,25 @@
 
 void vTaskTransceiverRX( void *pvParameters )
 {
-	static const uint8_t rawMessageBufferSize = 192u;
-	uint8_t messageIndex = 0u;
-	uint8_t bitIndex = 0u;
-	uint8_t rawMessageBuffer[ 192 ] = { 0u };
+	tCAN_msg msg[ 5 ];
+	uint8_t msgIndex = 0u;
+
+	static const uint8_t rawMessageBufferSize = 85u;
+	uint8_t byteIndex = 0u;
+	uint8_t bitIndex = 7u;
+	uint8_t rawMessageBuffer[ 85 ] = { 0u };
+	uint8_t rawMessageBitBuffer[ 255 ] = { 0u };
+	uint8_t rawMessageBitBufferIndex = 0u;
 	uint8_t receivedBit = 0u;
-	uint8_t numberOfReceivedBits = 0u;
-	uint8_t numberOfRecessiveBits = 0u;
+
 	uint8_t eofDetected = 0u;
 
+	uint8_t numberOfReceivedBits = 0u;
+	uint8_t numberOfRecessiveBits = 0u;
+
 	/* Enable and set EXTI_Line0 Interrupt */
-	NVIC_SetPriority( EXTI0_IRQn, configMAX_SYSCALL_INTERRUPT_PRIORITY - 1u );
-	NVIC_EnableIRQ( EXTI0_IRQn );
+	NVIC_SetPriority( EXTI9_5_IRQn, configMAX_SYSCALL_INTERRUPT_PRIORITY - 1u );
+	NVIC_EnableIRQ( EXTI9_5_IRQn );
 
 	NVIC_SetPriority( TIM2_IRQn, configMAX_SYSCALL_INTERRUPT_PRIORITY - 2u );
 	NVIC_EnableIRQ( TIM2_IRQn );
@@ -23,34 +30,63 @@ void vTaskTransceiverRX( void *pvParameters )
 		// Blocking wait on received bits queue
 		 xQueueReceive( q_rxBits, ( void * const )&receivedBit, portMAX_DELAY );
 
+		 rawMessageBitBuffer[ rawMessageBitBufferIndex++ ] = receivedBit;
+
 		 // Add read bits to buffer
-		 rawMessageBuffer[ messageIndex ] = ( receivedBit << bitIndex++ );
+		 if ( ( 0u == byteIndex ) && ( 7u == bitIndex ) )
+		 {
+			 rawMessageBuffer[ byteIndex ] = 0u;
+		 }
+		 rawMessageBuffer[ byteIndex ] |= ( receivedBit << bitIndex );
 		 numberOfReceivedBits++;
 
 		 // Increment counter of recessive bits to detect EOF.
-		 if ( 0u == receivedBit )
+		 if ( RECESSIVE == receivedBit )
 		 {
 			 numberOfRecessiveBits++;
 			 if ( 7u == numberOfRecessiveBits )
 			 {
 				 eofDetected = 1u;
 				 // Reset counters
-				 bitIndex = 0u;
-				 messageIndex = 0u;
+				 bitIndex = 7u;
+				 byteIndex = 0u;
 			 }
 		 }
 		 else
 		 {
 			 numberOfRecessiveBits = 0u;
-			 // Increment counters
-			 if ( 8u == bitIndex )
+		 }
+
+		 // Increment counters
+		 if ( 0u == bitIndex )
+		 {
+			 bitIndex = 7u;
+			 byteIndex++;
+			 if ( rawMessageBufferSize == byteIndex )
 			 {
-				 bitIndex = 0u;
-				 messageIndex++;
-				 if ( rawMessageBufferSize == messageIndex )
-				 {
-					 messageIndex = 0u;
-				 }
+				 byteIndex = 0u;
+			 }
+			 rawMessageBuffer[ byteIndex ] = 0u;
+		 }
+		 else
+		 {
+			 bitIndex--;
+		 }
+
+		 if ( 1u == eofDetected )
+		 {
+			 TIM_Cmd( TIM2, DISABLE );
+			 eofDetected = 0u;
+			 bitToMsg( rawMessageBuffer, 0, &( msg[ msgIndex ] ) );
+			 numberOfReceivedBits = 0;
+
+			 if ( 4u == msgIndex )
+			 {
+				msgIndex = 0u;
+			 }
+			 else
+			 {
+				 msgIndex++;
 			 }
 		 }
 	}

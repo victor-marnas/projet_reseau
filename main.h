@@ -19,6 +19,7 @@
 
 #include "user_tasks.h"
 #include "deviceInit.h"
+#include "CAN.h"
 
 
 xQueueHandle q_rxBits;
