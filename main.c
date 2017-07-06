@@ -27,34 +27,39 @@
 #define	DBG_ONLINE	1
 
 #include "main.h"
-#include "user_tasks.h"
 
 // Trace Labels
-traceLabel user_event_channel;
+// traceLabel user_event_channel;
 
 // Main program
 int main( void )
 {
-    // Init board LEDS and Blue Push Button
+	// ARM function, disable subpreemption
+	NVIC_SetPriorityGrouping( NVIC_PriorityGroup_4 );
 
+    // Init board LEDS
     STM_EVAL_LEDInit(LED3);
     STM_EVAL_LEDInit(LED4);
-    STM_EVAL_PBInit(BUTTON_USER, BUTTON_MODE_GPIO);
 
-    // Start IO Extenders (Touchpad & PCF IO Extenders)
-
+    // Start IO Touchpad
     IOE_Config();
 
+    // Init button for interrupt testing
+    InitPushButton( );
+    // Timer 2 interrupt for CAN acquisition
+    InitTimer( );
+
     // Launch FreeRTOS Trace recording
+    /*
     vTraceInitTraceData();
     uiTraceStart();
-
+	*/
     // Initialize resources management variable
+    q_rxBits = xQueueCreate( 512 , sizeof( uint8_t ) );
+    // user_event_channel = xTraceOpenLabel("UEV");
 
-    user_event_channel = xTraceOpenLabel("UEV");
-
-    xTaskCreate( vTaskTransceiverRX , "Task_Transceiver" , 128 , NULL , 10 , NULL );
-    xTaskCreate( vTaskSniffer , "Task_Transceiver" , 128 , NULL , 10 , NULL );
+    xTaskCreate( vTaskTransceiverRX , "Task_Transceiver_RX" , 512 , NULL , 10 , NULL );
+    // xTaskCreate( vTaskSniffer , "Task_Transceiver" , 128 , NULL , 10 , NULL );
 
     // Start the Scheduler
     vTaskStartScheduler();
@@ -63,4 +68,45 @@ int main( void )
     {
     	// The program should never be here...
     }
+}
+
+void EXTI0_IRQHandler( void )
+{
+	if( RESET != EXTI_GetITStatus( EXTI_Line0 ) )
+	{
+		TIM_Cmd( TIM2, DISABLE );
+
+		uint8_t toSend = (uint8_t)GPIO_ReadInputDataBit( GPIOA, GPIO_Pin_0 );
+		portBASE_TYPE higherPriorityWoken = pdFALSE;
+
+		// Clear the EXTI line 0 pending bit
+		EXTI_ClearITPendingBit( EXTI_Line0 );
+
+		// Set timer AutoReload Register to 839 ( 1/250000kbits/s + ~25% )
+		TIM2->ARR = 839;
+		TIM_Cmd( TIM2, ENABLE );
+
+		xQueueSendToBackFromISR( q_rxBits, (void*)&toSend, &higherPriorityWoken );
+
+		portEND_SWITCHING_ISR( higherPriorityWoken );
+	}
+}
+
+void TIM2_IRQHandler( void )
+{
+	if( RESET != TIM_GetITStatus( TIM2, TIM_IT_Update ) )
+	{
+		// Clear interrupt
+		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
+
+		uint8_t toSend = (uint8_t)GPIO_ReadInputDataBit( GPIOA, GPIO_Pin_0 );
+		portBASE_TYPE higherPriorityWoken = pdFALSE;
+
+		// 4 us = 1/( 250 000 kbits/s )
+		TIM2->ARR = 671;
+
+		xQueueSendToBackFromISR( q_rxBits, (void*)&toSend, &higherPriorityWoken );
+
+		portEND_SWITCHING_ISR( higherPriorityWoken );
+	}
 }

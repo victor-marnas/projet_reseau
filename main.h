@@ -2,6 +2,7 @@
 
 // Include main headers
 #include "stm32f4xx.h"
+#include "stm32f4xx_tim.h"
 
 // Include BSP headers
 #include "stm32f429i_discovery.h"
@@ -15,3 +16,9 @@
 #include "timers.h"
 #include "semphr.h"
 #include "queue.h"
+
+#include "user_tasks.h"
+#include "deviceInit.h"
+
+
+xQueueHandle q_rxBits;

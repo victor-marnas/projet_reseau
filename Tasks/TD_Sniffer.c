@@ -2,11 +2,9 @@
 
 void vTaskSniffer( void *pvParameters )
 {
-
-  while( 1 )
-  {
-	STM_EVAL_LEDOn( LED4 );
-
-	STM_EVAL_LEDOff( LED4 );
-  }
+	portTickType xLastWakeTime = xTaskGetTickCount();
+	while( 1 )
+	{
+		vTaskDelayUntil( &xLastWakeTime , 1000 / portTICK_RATE_MS );
+	}
 }
