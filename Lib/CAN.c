@@ -1,15 +1,5 @@
 #include "main.h"
-
-#define max_step 9
-
-typedef struct {
-	uint16_t ID			: 11;
-	uint8_t RTR			: 1;
-	uint8_t dataLength	: 4;
-	uint8_t data[ 8u ];
-	uint16_t crc        : 15;
-	uint8_t isValid		: 1;
-}tCAN_msg;
+#include "CAN.h"
 
 static inline void initialize( tCAN_msg* msg )
 {
@@ -42,7 +32,7 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 	uint8_t previousBit = 0u;
 	uint8_t dataIndex = 0u;
 	uint8_t crcIndex = 15u;
-	uint8_t consecutiveBitCount = 0u;
+	uint8_t consecutiveBitCount = 1u;
 	uint8_t eotBitCount = 0u;
 	uint8_t intertrameBitCount = 0u;
 	int8_t step = 0;
@@ -63,6 +53,10 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 			bitIndex = 7u;
 			octetIndex++;
 		}
+		/*else
+		{
+			bitIndex--;
+		}*/
 
 		if ( step <= 5u ) //Bit stuffing uniquement avant CRC
 		{
@@ -72,13 +66,15 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 
 				if ( 5u == consecutiveBitCount )
 				{
-					consecutiveBitCount = 0u;
+					consecutiveBitCount = 1u;
+					previousBit = (bit == 1u) ? 0u : 1u;
+
 					continue;
 				}
 			}
 			else
 			{
-				consecutiveBitCount = 0u;
+				consecutiveBitCount = 1u;
 			}
 		}
 
@@ -246,5 +242,199 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 	if ( step == ( max_step + 1 ) )
 	{
 		msg->isValid = 1u;
+	}
+}
+
+static void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size )
+{
+	if (msg != (tCAN_msg*)0)
+	{
+		if (msg->isValid)
+		{
+			uint8_t step = 0u;
+			uint8_t consecutiveBitCount = 1u;
+			uint8_t octetIndex = 0u;
+			uint8_t bitIndex = 7u;
+			uint8_t previousBit = 0u;
+			uint8_t bit = 0u;
+			uint8_t lengthIndex = 10u;
+			uint8_t dataLengthIndex = 3u;
+			uint8_t crcIndex = 14u;
+			uint8_t eofIndex = 9u;
+
+			uint8_t dataOctetIndex = msg->dataLength;
+			uint8_t dataIndex = 7u;
+
+			while (step < 4) //maxStep)
+			{
+				switch (step)
+				{
+					case 0: // SOT
+					{
+						bit = 1u;
+
+						step++;
+
+						break;
+					}
+					case 1: // ID
+					{
+						bit = getBit(msg->ID, lengthIndex);
+
+						if (lengthIndex == 0u)
+						{
+							step++;
+						}
+						else {
+							lengthIndex--;
+						}
+
+						break;
+					}
+					case 2: // RTR
+					{
+						bit = msg->RTR;
+
+						step++;
+
+						break;
+					}
+					case 3: // R0
+					{
+						bit = 0u;
+
+						step++;
+
+						break;
+					}
+					case 4: // R1
+					{
+						bit = 0u;
+
+						step++;
+
+						break;
+					}
+					case 5: // DLC
+					{
+						bit = getBit(msg->dataLength, dataLengthIndex);
+
+						if (dataLengthIndex == 0u)
+						{
+							step++;
+						}
+						else {
+							dataLengthIndex--;
+						}
+
+						break;
+					}
+					case 6: // Data
+					{
+						bit = getBit(msg->data[dataOctetIndex], dataIndex);
+
+						if (dataIndex == 0u)
+						{
+							dataIndex = 7u;
+
+							if (dataOctetIndex == 0u)
+							{
+								step++;
+							}
+							else
+							{
+								dataOctetIndex--;
+							}
+						}
+						else
+						{
+							dataIndex--;
+						}
+
+						break;
+					}
+					case 7: // CRC
+					{
+						bit = getBit(msg->crc, crcIndex);
+
+						if (crcIndex == 0u)
+						{
+							step++;
+						}
+						else
+						{
+							crcIndex--;
+						}
+
+						break;
+					}
+					case 8: // Délimiteur
+					{
+						bit = 0u;
+
+						break;
+					}
+					case 9: // ACK
+					{
+						bit = 1u;
+
+						break;
+					}
+					case 10: // Délimiteur
+					{
+						bit = 0u;
+
+						break;
+					}
+					case 11: // EOF + Intertrame
+					{
+						bit = 0u;
+
+						if (eofIndex == 0u)
+						{
+							step++;
+						}
+						else
+						{
+							eofIndex--;
+						}
+						break;
+					}
+				}
+
+				if (step < 6) // Ajout bitstuffing avant CRC
+				{
+					if (consecutiveBitCount == 5u)
+					{
+						previousBit = (bit == 0u) ? 1u : 0u;
+						octet[octetIndex] += previousBit;
+
+						consecutiveBitCount = 1u;
+					}
+
+					if (previousBit == bit)
+					{
+						consecutiveBitCount++;
+					}
+					else
+					{
+						consecutiveBitCount = 1u;
+					}
+				}
+
+				octet[octetIndex] += (bit << bitIndex);
+
+				if (bitIndex == 0)
+				{
+					bitIndex = 7u;
+					octetIndex--;
+					octet[octetIndex] = 0;
+				}
+				else
+				{
+					bitIndex--;
+				}
+			}
+		}
 	}
 }

@@ -415,6 +415,27 @@ Discarded input sections
  .debug_frame   0x00000000      0x27c ..\obj\stm32f4xx_pwr.o
  .ARM.attributes
                 0x00000000       0x39 ..\obj\stm32f4xx_pwr.o
+ .text          0x00000000        0x0 ..\obj\CAN.o
+ .data          0x00000000        0x0 ..\obj\CAN.o
+ .bss           0x00000000        0x0 ..\obj\CAN.o
+ .text.initialize
+                0x00000000       0x68 ..\obj\CAN.o
+ .text.getBit   0x00000000       0x40 ..\obj\CAN.o
+ .text.bitToMsg
+                0x00000000      0x308 ..\obj\CAN.o
+ .text.msgToBit
+                0x00000000      0x268 ..\obj\CAN.o
+ .debug_info    0x00000000      0x3e7 ..\obj\CAN.o
+ .debug_abbrev  0x00000000      0x177 ..\obj\CAN.o
+ .debug_aranges
+                0x00000000       0x38 ..\obj\CAN.o
+ .debug_ranges  0x00000000       0x28 ..\obj\CAN.o
+ .debug_line    0x00000000      0x2b8 ..\obj\CAN.o
+ .debug_str     0x00000000      0x320 ..\obj\CAN.o
+ .comment       0x00000000       0x6f ..\obj\CAN.o
+ .debug_frame   0x00000000       0xb0 ..\obj\CAN.o
+ .ARM.attributes
+                0x00000000       0x39 ..\obj\CAN.o
  .text          0x00000000        0x0 ..\obj\stm32f4xx_can.o
  .data          0x00000000        0x0 ..\obj\stm32f4xx_can.o
  .bss           0x00000000        0x0 ..\obj\stm32f4xx_can.o
@@ -1115,25 +1136,6 @@ Discarded input sections
  .debug_frame   0x00000000      0x2ec ..\obj\stm32f4xx_cryp.o
  .ARM.attributes
                 0x00000000       0x39 ..\obj\stm32f4xx_cryp.o
- .text          0x00000000        0x0 ..\obj\CAN_Decode.o
- .data          0x00000000        0x0 ..\obj\CAN_Decode.o
- .bss           0x00000000        0x0 ..\obj\CAN_Decode.o
- .text.initialize
-                0x00000000       0x3c ..\obj\CAN_Decode.o
- .text.getBit   0x00000000       0x40 ..\obj\CAN_Decode.o
- .text.bitToMsg
-                0x00000000      0x3b8 ..\obj\CAN_Decode.o
- .debug_info    0x00000000      0x2e3 ..\obj\CAN_Decode.o
- .debug_abbrev  0x00000000      0x143 ..\obj\CAN_Decode.o
- .debug_aranges
-                0x00000000       0x30 ..\obj\CAN_Decode.o
- .debug_ranges  0x00000000       0x20 ..\obj\CAN_Decode.o
- .debug_line    0x00000000      0x222 ..\obj\CAN_Decode.o
- .debug_str     0x00000000      0x2ea ..\obj\CAN_Decode.o
- .comment       0x00000000       0x6f ..\obj\CAN_Decode.o
- .debug_frame   0x00000000       0x88 ..\obj\CAN_Decode.o
- .ARM.attributes
-                0x00000000       0x39 ..\obj\CAN_Decode.o
  .text          0x00000000        0x0 ..\obj\stm32f4xx_gpio.o
  .data          0x00000000        0x0 ..\obj\stm32f4xx_gpio.o
  .bss           0x00000000        0x0 ..\obj\stm32f4xx_gpio.o
@@ -3046,6 +3048,7 @@ LOAD ..\obj\stm32f4xx_dma2d.o
 LOAD ..\obj\stm32f4xx_hash_sha1.o
 LOAD ..\obj\stm32f4xx_usart.o
 LOAD ..\obj\stm32f4xx_pwr.o
+LOAD ..\obj\CAN.o
 LOAD ..\obj\stm32f4xx_can.o
 LOAD ..\obj\stm32f4xx_wwdg.o
 LOAD ..\obj\stm32f4xx_hash_md5.o
@@ -3064,7 +3067,6 @@ LOAD ..\obj\TD_Sniffer.o
 LOAD ..\obj\tasks.o
 LOAD ..\obj\stm32f4xx_cryp_des.o
 LOAD ..\obj\stm32f4xx_cryp.o
-LOAD ..\obj\CAN_Decode.o
 LOAD ..\obj\stm32f4xx_gpio.o
 LOAD ..\obj\stm32f429i_discovery_sdram.o
 LOAD ..\obj\stm32f4xx_flash.o
