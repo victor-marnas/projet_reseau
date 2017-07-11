@@ -3,11 +3,14 @@
 // Include main headers
 #include "stm32f4xx.h"
 #include "stm32f4xx_tim.h"
+#include <stdio.h>
 
 // Include BSP headers
 #include "stm32f429i_discovery.h"
 #include "stm32f429i_discovery_sdram.h"
 #include "stm32f429i_discovery_ioe.h"
+#include "fonts.h"
+#include "stm32f429i_discovery_lcd.h"
 
 // Include FreeRTOS headers
 #include "FreeRTOSConfig.h"
@@ -23,3 +26,4 @@
 
 
 xQueueHandle q_rxBits;
+xQueueHandle q_rxMessages;

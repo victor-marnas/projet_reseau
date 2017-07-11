@@ -41,6 +41,15 @@ int main( void )
     STM_EVAL_LEDInit(LED3);
     STM_EVAL_LEDInit(LED4);
 
+    // Init LCD
+	LCD_Init();
+	LCD_LayerInit();
+	LTDC_Cmd(ENABLE);
+	LCD_SetLayer(LCD_FOREGROUND_LAYER);
+	LCD_Clear(0xFFFF);
+	LCD_SetTextColor(0x0000);
+	LCD_SetFont(&Font12x12);
+
     // Start IO Touchpad
     IOE_Config();
 
@@ -56,10 +65,13 @@ int main( void )
 	*/
     // Initialize resources management variable
     q_rxBits = xQueueCreate( 1024 , sizeof( uint8_t ) );
+    q_rxMessages = xQueueCreate( 10 , sizeof( tCAN_msg ) );
     // user_event_channel = xTraceOpenLabel("UEV");
 
-    xTaskCreate( vTaskTransceiverRX , "Task_Transceiver_RX" , 512 , NULL , 10 , NULL );
-    // xTaskCreate( vTaskSniffer , "Task_Transceiver" , 128 , NULL , 10 , NULL );
+    xTaskCreate( vTaskTransceiverRX , "Task_Transceiver_RX" , 512 , NULL , 20 , NULL );
+    xTaskCreate( vTaskSniffer , "Task_Sniffer" , 128 , NULL , 10 , NULL );
+
+    LCD_DisplayStringLine(12, (uint8_t*) "Init done");
 
     // Start the Scheduler
     vTaskStartScheduler();

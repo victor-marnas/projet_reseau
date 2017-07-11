@@ -15,3 +15,6 @@ itsplc_freertos/ITSPLC_FreeRTOS.elf.xcodeproj/project.pbxproj
 *.xml
 *.map
 >>>>>>> origin/master
+itsplc_freertos/Debug/obj/history.xml
+itsplc_freertos/Debug/obj/history.xml
+itsplc_freertos/Debug/obj/dependencies.xml

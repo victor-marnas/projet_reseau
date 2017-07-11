@@ -2,9 +2,38 @@
 
 void vTaskSniffer( void *pvParameters )
 {
-	portTickType xLastWakeTime = xTaskGetTickCount();
+	tCAN_msg receivedMessage;
 	while( 1 )
 	{
-		vTaskDelayUntil( &xLastWakeTime , 1000 / portTICK_RATE_MS );
+		// Blocking wait on received bits queue
+		xQueueReceive( q_rxMessages, ( void * const )&receivedMessage, portMAX_DELAY );
+
+		LCD_DisplayStringLine( 12, (uint8_t*)"Received Frame" );
+
+		if ( 1u == receivedMessage.isValid )
+		{
+			LCD_DisplayStringLine( 24, (uint8_t*)"Frame correct" );
+		}
+		else
+		{
+			LCD_DisplayStringLine( 24, (uint8_t*)"Frame NOT correct" );
+		}
+
+		char ID[ 15 ] = { 0u };
+		sprintf( ID, "ID : 0x%02X", receivedMessage.ID );
+		LCD_DisplayStringLine( 36, (uint8_t*)ID );
+
+		char data[ 39 ] = { 0u };
+		sprintf( data,
+				 "0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X",
+				 receivedMessage.data[ 0 ],
+				 receivedMessage.data[ 1 ],
+				 receivedMessage.data[ 2 ],
+				 receivedMessage.data[ 3 ],
+				 receivedMessage.data[ 4 ],
+				 receivedMessage.data[ 5 ],
+				 receivedMessage.data[ 6 ],
+				 receivedMessage.data[ 7 ] );
+		LCD_DisplayStringLine( 48, (uint8_t*)data );
 	}
 }
