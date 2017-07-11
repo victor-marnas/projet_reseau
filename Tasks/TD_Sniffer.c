@@ -23,17 +23,20 @@ void vTaskSniffer( void *pvParameters )
 		sprintf( ID, "ID : 0x%02X", receivedMessage.ID );
 		LCD_DisplayStringLine( 36, (uint8_t*)ID );
 
-		char data[ 39 ] = { 0u };
+		char data[ 19 ] = { 0u };
 		sprintf( data,
-				 "0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X",
+				 "0x%02X 0x%02X 0x%02X 0x%02X",
 				 receivedMessage.data[ 0 ],
 				 receivedMessage.data[ 1 ],
 				 receivedMessage.data[ 2 ],
-				 receivedMessage.data[ 3 ],
+				 receivedMessage.data[ 3 ] );
+		LCD_DisplayStringLine( 48, (uint8_t*)data );
+		sprintf( data,
+				 "0x%02X 0x%02X 0x%02X 0x%02X",
 				 receivedMessage.data[ 4 ],
 				 receivedMessage.data[ 5 ],
 				 receivedMessage.data[ 6 ],
 				 receivedMessage.data[ 7 ] );
-		LCD_DisplayStringLine( 48, (uint8_t*)data );
+		LCD_DisplayStringLine( 60, (uint8_t*)data );
 	}
 }

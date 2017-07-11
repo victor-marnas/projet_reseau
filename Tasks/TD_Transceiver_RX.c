@@ -87,6 +87,7 @@ void vTaskTransceiverRX( void *pvParameters )
 				 eofDetected = 0u;
 	//			 displayData( rawMessageBuffer );
 				 bitToMsg( rawMessageBuffer, 0, &( msg[ msgIndex ] ) );
+				 xQueueSendToBack( q_rxMessages, (void*)&( msg[ msgIndex ] ), 0 );
 				 numberOfReceivedBits = 0u;
 				 numberOfRecessiveBits = 0u;
 
