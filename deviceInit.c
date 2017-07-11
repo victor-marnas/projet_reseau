@@ -41,7 +41,7 @@ void InitTimer( void )
 
 	TIM_InitStruct.TIM_Prescaler = 0;
 	TIM_InitStruct.TIM_CounterMode = TIM_CounterMode_Up;
-	TIM_InitStruct.TIM_Period = 839;
+	TIM_InitStruct.TIM_Period = 419;
 	TIM_InitStruct.TIM_ClockDivision = TIM_CKD_DIV1;
 	TIM_InitStruct.TIM_RepetitionCounter = 0;
 

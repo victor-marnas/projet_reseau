@@ -31,10 +31,10 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 	uint8_t bitIndex = 7u;
 	uint8_t previousBit = 0u;
 	uint8_t dataIndex = 0u;
-	uint8_t crcIndex = 15u;
-	uint8_t consecutiveBitCount = 1u;
+	uint8_t dataBitIndex = 7u;
+	uint8_t crcIndex = 14u;
+	uint8_t consecutiveBitCount = 0u;
 	uint8_t eotBitCount = 0u;
-	uint8_t intertrameBitCount = 0u;
 	int8_t step = 0;
 	int8_t idIndex = 10;
 	int8_t ctrlIndex = 5;
@@ -42,7 +42,7 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 
 	initialize( msg );
 
-	while ( ( step < max_step ) && ( step != -1 ) )
+	while ( ( step < (max_step + 1) ) && ( step != -1 ) )
 	{
 		uint8_t bit = getBit( octet[octetIndex], bitIndex );
 
@@ -61,14 +61,14 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 			if ( previousBit == bit )
 			{
 				consecutiveBitCount++;
+			}
+			else if ( 5u == consecutiveBitCount )
+			{
+				consecutiveBitCount = 0u;
 
-				if ( 5u == consecutiveBitCount )
-				{
-					consecutiveBitCount = 1u;
-					previousBit = (bit == 1u) ? 0u : 1u;
+				previousBit = (bit == 1u) ? 0u : 1u;
 
-					continue;
-				}
+				continue;
 			}
 			else
 			{
@@ -120,7 +120,7 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 
 					if ( 0u == ctrlIndex )
 					{
-						dataIndex = msg->dataLength;
+						dataIndex = msg->dataLength - 1;
 
 						step++;
 					}
@@ -132,9 +132,9 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 			}
 			case 4: // Champ de bits
 			{
-				msg->data[ dataIndex ] += ( bit << bitIndex );
+				msg->data[ dataIndex ] += ( bit << dataBitIndex );
 
-				if ( 0u == bitIndex )
+				if ( 0u == dataBitIndex )
 				{
 					if ( 0u == dataIndex )
 					{
@@ -142,9 +142,12 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 					}
 					else
 					{
+						dataBitIndex = 8u;
 						dataIndex--;
 					}
 				}
+
+				dataBitIndex--;
 
 				break;
 			}
@@ -205,30 +208,12 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 				}
 				else
 				{
-					step = -1;
+					//step = -1;
+					step++;
 				}
 
 				break;
 			}
-			case 9: // Intertrame
-			{
-				if ( RECESSIVE == bit )
-				{
-					intertrameBitCount++;
-
-					if ( 3u == intertrameBitCount )
-					{
-						step++;
-					}
-				}
-				else
-				{
-					step = -1;
-				}
-
-				break;
-			}
-
 		}
 
 		previousBit = bit;
@@ -432,4 +417,24 @@ void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size )
 			}
 		}
 	}
+}
+
+void displayData( uint8_t octet[ 17u ] )
+{
+	uint8_t msg[135];
+	uint8_t index = 0;
+
+	for (uint8_t octetIndex = 0u; octetIndex < 17u; ++octetIndex)
+	{
+		for (uint8_t bitIndex = 7u; bitIndex > 0u; --bitIndex)
+		{
+			msg[index] = getBit(octet[octetIndex], bitIndex) + '0';
+
+			index++;
+		}
+	}
+
+	msg[index] = "\0";
+
+	LCD_DisplayStringLine( 36 , (uint8_t*) msg );
 }
