@@ -27,3 +27,4 @@
 
 xQueueHandle q_rxBits;
 xQueueHandle q_rxMessages;
+xQueueHandle q_txMessages;

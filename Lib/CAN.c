@@ -93,7 +93,7 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 			}
 			case 1: // ID
 			{
-				msg->ID += ( bit << idIndex );
+				msg->ID |= ( bit << idIndex );
 
 				if ( 0u == idIndex )
 				{
@@ -116,11 +116,11 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 			{
 				if ( ctrlIndex < 4u )
 				{
-					msg->dataLength += ( bit << ctrlIndex );
+					msg->dataLength |= ( bit << ctrlIndex );
 
 					if ( 0u == ctrlIndex )
 					{
-						dataIndex = msg->dataLength - 1;
+						dataIndex = msg->dataLength - 1u;
 
 						step++;
 					}
@@ -132,7 +132,7 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 			}
 			case 4: // Champ de bits
 			{
-				msg->data[ dataIndex ] += ( bit << dataBitIndex );
+				msg->data[ dataIndex ] |= ( bit << dataBitIndex );
 
 				if ( 0u == dataBitIndex )
 				{
@@ -153,7 +153,7 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 			}
 			case 5: // Champ de CRC
 			{
-				msg->crc += ( bit << crcIndex );
+				msg->crc |= ( bit << crcIndex );
 
 				if ( 0u == crcIndex )
 				{
@@ -169,7 +169,8 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 				if ( RECESSIVE == bit ) {
 					step++;
 				}
-				else {
+				else
+				{
 					step = -1;
 				}
 
@@ -222,6 +223,12 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 	if ( step == ( max_step + 1 ) )
 	{
 		msg->isValid = 1u;
+
+		uint16_t calculatedCRC = crc( msg );
+		if ( calculatedCRC != msg->crc )
+		{
+			msg->isValid = 0u;
+		}
 	}
 }
 
@@ -434,7 +441,84 @@ void displayData( uint8_t octet[ 17u ] )
 		}
 	}
 
-	msg[index] = "\0";
+	msg[index] = '\0';
 
 	LCD_DisplayStringLine( 36 , (uint8_t*) msg );
+}
+
+uint16_t crc( tCAN_msg* msg )
+{
+	uint16_t crc = 0u;
+
+	if ( (tCAN_msg*)0 != msg )
+	{
+		uint8_t i = 0u;
+		uint8_t oct10_ID = 0u;
+		uint8_t oct9_ID = 0u;
+		uint8_t oct8_ID = 0u;
+		uint8_t oct10 = 0u;
+		uint8_t oct9 = 0u;
+		uint8_t oct8 = 0u;
+		uint8_t oct7 = 0u;
+		uint8_t oct6 = 0u;
+		uint8_t oct5 = 0u;
+		uint8_t oct4 = 0u;
+		uint8_t oct3 = 0u;
+		uint8_t oct2 = 0u;
+		uint8_t oct1 = 0u;
+		uint8_t oct0 = 0u;
+
+		oct0 = msg->data[0];
+		oct1 = msg->data[1];
+		oct2 = msg->data[2];
+		oct3 = msg->data[3];
+		oct4 = msg->data[4];
+		oct5 = msg->data[5];
+		oct6 = msg->data[6];
+		oct7 = msg->data[7];
+		oct8_ID = 0b01u & msg->ID;
+		oct8 |= oct8_ID << 1;
+		oct8 |= msg->RTR;
+		oct8 = oct8 << 6u;
+		oct8 |= msg->dataLength;
+
+		oct9_ID = (0b00111111110 & msg->ID) >> 1;
+		oct9 = oct9_ID;
+		oct10_ID = (0b11000000000 & msg->ID) >> 9;
+		oct10 = oct10_ID;
+
+		uint8_t data[ 11u ] = { oct10, oct9, oct8, oct7, oct6, oct5, oct4, oct3, oct2, oct1, oct0 };
+
+		for ( i = 0u; i < 11u; i++ )
+		{
+			crc = can_crc_next( crc, data[ i ] );
+		}
+	}
+
+	return( crc );
+}
+
+uint16_t can_crc_next( uint16_t crc, uint8_t data )
+{
+	uint8_t i = 0u;
+	uint16_t crcReturn = crc;
+
+	if ( 0u != data )
+	{
+		crcReturn ^= (uint16_t)data << 7u;
+
+		for ( i = 0u; i < 8u; i++ )
+		{
+			crcReturn <<= 1u;
+
+			if ( 0u != ( crcReturn & 0x8000u ) )
+			{
+				crcReturn ^= 0xc599u;
+			}
+		}
+	}
+
+	crcReturn &= 0x7fffu;
+
+	return ( crcReturn );
 }

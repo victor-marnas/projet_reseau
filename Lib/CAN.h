@@ -17,3 +17,5 @@ typedef struct {
 void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg );
 void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size );
 void displayData( uint8_t octet[ 17u ] );
+uint16_t crc( tCAN_msg* msg );
+uint16_t can_crc_next( uint16_t crc, uint8_t data );

@@ -5,11 +5,13 @@ void vTaskTransceiverRX( void *pvParameters )
 	tCAN_msg msg[ 5 ];
 	uint8_t msgIndex = 0u;
 
+	uint8_t i = 0u;
+
 	static const uint8_t rawMessageBufferSize = 85u;
 	uint8_t byteIndex = 0u;
 	uint8_t bitIndex = 7u;
-	uint8_t rawMessageBuffer[ 85 ] = { 0u };
-	uint8_t rawMessageBitBuffer[ 255 ] = { 0u };
+	uint8_t rawMessageBuffer[ 85u ] = { 0u };
+	uint8_t rawMessageBitBuffer[ 255u ] = { 0u };
 	uint8_t rawMessageBitBufferIndex = 0u;
 	uint8_t receivedBit = 0u;
 
@@ -85,14 +87,26 @@ void vTaskTransceiverRX( void *pvParameters )
 			 {
 				 TIM_Cmd( TIM2, DISABLE );
 				 eofDetected = 0u;
-	//			 displayData( rawMessageBuffer );
+				 // displayData( rawMessageBuffer );
 				 bitToMsg( rawMessageBuffer, 0, &( msg[ msgIndex ] ) );
 				 xQueueSendToBack( q_rxMessages, (void*)&( msg[ msgIndex ] ), 0 );
+
+				 // Reset default values
 				 numberOfReceivedBits = 0u;
 				 numberOfRecessiveBits = 0u;
 
 				 byteIndex = 0u;
 				 bitIndex = 7u;
+				 firstBit = 1u;
+
+				 for( i = 0u; i < 64u; i++ )
+				 {
+					 *((uint32_t*)(&rawMessageBitBuffer[ i << 2u ])) = 0u;
+				 }
+				 for( i = 0u; i < rawMessageBufferSize; i++ )
+				 {
+					 rawMessageBuffer[ i ] = 0u;
+				 }
 
 				 if ( 4u == msgIndex )
 				 {

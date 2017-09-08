@@ -12,7 +12,7 @@ void vTaskSniffer( void *pvParameters )
 
 		if ( 1u == receivedMessage.isValid )
 		{
-			LCD_DisplayStringLine( 24, (uint8_t*)"Frame correct" );
+			LCD_DisplayStringLine( 24, (uint8_t*)"Frame correct     " );
 		}
 		else
 		{
@@ -20,7 +20,7 @@ void vTaskSniffer( void *pvParameters )
 		}
 
 		char ID[ 15 ] = { 0u };
-		sprintf( ID, "ID : 0x%02X", receivedMessage.ID );
+		sprintf( ID, "ID : 0x%03X", receivedMessage.ID );
 		LCD_DisplayStringLine( 36, (uint8_t*)ID );
 
 		char data[ 19 ] = { 0u };
@@ -38,5 +38,11 @@ void vTaskSniffer( void *pvParameters )
 				 receivedMessage.data[ 6 ],
 				 receivedMessage.data[ 7 ] );
 		LCD_DisplayStringLine( 60, (uint8_t*)data );
+
+		sprintf( data,
+				 "crcR %04X crcC %04X",
+				 receivedMessage.crc,
+				 crc( &receivedMessage ) );
+		LCD_DisplayStringLine( 84, (uint8_t*)data );
 	}
 }

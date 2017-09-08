@@ -64,11 +64,12 @@ int main( void )
     uiTraceStart();
 	*/
     // Initialize resources management variable
-    q_rxBits = xQueueCreate( 1024 , sizeof( uint8_t ) );
-    q_rxMessages = xQueueCreate( 10 , sizeof( tCAN_msg ) );
+    q_rxBits = xQueueCreate( 1024, sizeof( uint8_t ) );
+    q_rxMessages = xQueueCreate( 10, sizeof( tCAN_msg ) );
+    q_txMessages = xQueueCreate( 1, sizeof( tCAN_msg ) );
     // user_event_channel = xTraceOpenLabel("UEV");
 
-    xTaskCreate( vTaskTransceiverRX , "Task_Transceiver_RX" , 512 , NULL , 20 , NULL );
+    xTaskCreate( vTaskTransceiverRX , "Task_Transceiver_RX" , 1024 , NULL , 20 , NULL );
     xTaskCreate( vTaskSniffer , "Task_Sniffer" , 128 , NULL , 10 , NULL );
 
     LCD_DisplayStringLine(12, (uint8_t*) "Init done");
@@ -90,6 +91,7 @@ void EXTI9_5_IRQHandler( void )
 	{
 		TIM_Cmd( TIM2, DISABLE );
 
+		// Toggle output for timing debug
 		if ( RESET == GPIO_ReadOutputDataBit( GPIOA, GPIO_Pin_6 ) )
 		{
 			GPIO_SetBits( GPIOA, GPIO_Pin_6 );
@@ -123,6 +125,7 @@ void TIM2_IRQHandler( void )
 {
 	if( RESET != TIM_GetITStatus( TIM2, TIM_IT_Update ) )
 	{
+		// Toggle output for timing debug
 		if ( RESET == GPIO_ReadOutputDataBit( GPIOA, GPIO_Pin_6 ) )
 		{
 			GPIO_SetBits( GPIOA, GPIO_Pin_6 );
