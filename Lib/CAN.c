@@ -11,7 +11,8 @@ static inline void initialize( tCAN_msg* msg )
 	for( i = 0u; i < 8u; msg->data[ i++ ] = 0u );
 
 	msg->crc = 0u;
-	msg->error = 0u;
+	msg->isValid = 0u;
+	msg->error = NO_ERR;
 }
 
 static inline uint8_t getBit( uint8_t octet, uint8_t bitIndex )
@@ -65,7 +66,7 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 			else if ( 5u == consecutiveBitCount )
 			{
 				if (previousBit == bit) {
-					msg->error = BIT_STUFFING_ERROR;
+					msg->error = BIT_STUFFING_ERR;
 				}
 				else {
 					consecutiveBitCount = 0u;
@@ -227,13 +228,14 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 
 	if ( step == ( max_step + 1 ) )
 	{
-		msg->error = 0u;
-
 		uint16_t calculatedCRC = crc( msg );
 
 		if ( calculatedCRC != msg->crc )
 		{
-			msg->error = CRC_ERROR;
+			msg->error = CRC_ERR;
+		}
+		else {
+			msg->isValid = 1u;
 		}
 	}
 }

@@ -10,13 +10,20 @@ void vTaskSniffer( void *pvParameters )
 
 		LCD_DisplayStringLine( 12, (uint8_t*)"Received Frame" );
 
-		if ( 0u == receivedMessage.error )
+		if ( 1u == receivedMessage.isValid )
 		{
-			LCD_DisplayStringLine( 24, (uint8_t*)"Frame correct     " );
+			LCD_DisplayStringLine( 24, (uint8_t*)"Frame correct      " );
 		}
 		else
 		{
-			LCD_DisplayStringLine( 24, (uint8_t*)"Frame NOT correct" );
+			if (receivedMessage.error == BIT_STUFFING_ERR) {
+				LCD_DisplayStringLine( 24, (uint8_t*)"Bit stuffing error" );
+			}
+			else if (receivedMessage.error == CRC_ERR) {
+				LCD_DisplayStringLine( 24, (uint8_t*)"CRC error         " );
+			}
+
+			LCD_DisplayStringLine( 24, (uint8_t*)"Frame NOT correct " );
 		}
 
 		char ID[ 15 ] = { 0u };

@@ -3,18 +3,17 @@
 #define max_step 8
 #define RECESSIVE	( (uint8_t) 1u )
 #define DOMINANT	( (uint8_t) 0u )
-#define BIT_STUFFING_ERROR ( (uint8_t) 1u )
-#define CRC_ERROR ( (uint8_t) 2u )
-#define LENGTH_ERROR ( (uint8_t) 3u )
 
+typedef enum { NO_ERR, BIT_STUFFING_ERR, CRC_ERR, LENGTH_ERR } eErrorCAN;
 
 typedef struct {
-	uint16_t ID			: 11;
-	uint8_t RTR			: 1;
-	uint8_t dataLength	: 4;
+	uint16_t ID			: 11u;
+	uint8_t RTR			: 1u;
+	uint8_t dataLength	: 4u;
 	uint8_t data[ 8u ];
-	uint16_t crc        : 15;
-	uint8_t error		: 2;
+	uint16_t crc        : 15u;
+	uint8_t isValid     : 1u;
+	eErrorCAN error     : 8u;
 }tCAN_msg;
 
 
