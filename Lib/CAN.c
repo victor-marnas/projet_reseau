@@ -65,7 +65,7 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 			else if ( 5u == consecutiveBitCount )
 			{
 				if (previousBit == bit) {
-					error = BIT_STUFFING_ERROR;
+					msg->error = BIT_STUFFING_ERROR;
 				}
 				else {
 					consecutiveBitCount = 0u;

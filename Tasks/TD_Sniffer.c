@@ -10,7 +10,7 @@ void vTaskSniffer( void *pvParameters )
 
 		LCD_DisplayStringLine( 12, (uint8_t*)"Received Frame" );
 
-		if ( 1u == receivedMessage.isValid )
+		if ( 0u == receivedMessage.error )
 		{
 			LCD_DisplayStringLine( 24, (uint8_t*)"Frame correct     " );
 		}
