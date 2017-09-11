@@ -23,7 +23,7 @@ void vTaskSniffer( void *pvParameters )
 				LCD_DisplayStringLine( 24, (uint8_t*)"CRC error         " );
 			}
 
-			LCD_DisplayStringLine( 24, (uint8_t*)"Frame NOT correct " );
+			//LCD_DisplayStringLine( 24, (uint8_t*)"Frame NOT correct " );
 		}
 
 		char ID[ 15 ] = { 0u };
@@ -46,10 +46,10 @@ void vTaskSniffer( void *pvParameters )
 				 receivedMessage.data[ 7 ] );
 		LCD_DisplayStringLine( 60, (uint8_t*)data );
 
-		sprintf( data,
+		/*sprintf( data,
 				 "crcR %04X crcC %04X",
 				 receivedMessage.crc,
 				 crc( &receivedMessage ) );
-		LCD_DisplayStringLine( 84, (uint8_t*)data );
+		LCD_DisplayStringLine( 84, (uint8_t*)data );*/
 	}
 }
