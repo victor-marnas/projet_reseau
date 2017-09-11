@@ -11,7 +11,7 @@ static inline void initialize( tCAN_msg* msg )
 	for( i = 0u; i < 8u; msg->data[ i++ ] = 0u );
 
 	msg->crc = 0u;
-	msg->isValid = 0u;
+	msg->error = 0u;
 }
 
 static inline uint8_t getBit( uint8_t octet, uint8_t bitIndex )
@@ -64,11 +64,16 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 			}
 			else if ( 5u == consecutiveBitCount )
 			{
-				consecutiveBitCount = 0u;
+				if (previousBit == bit) {
+					error = BIT_STUFFING_ERROR;
+				}
+				else {
+					consecutiveBitCount = 0u;
 
-				previousBit = (bit == 1u) ? 0u : 1u;
+					previousBit = (bit == 1u) ? 0u : 1u;
 
-				continue;
+					continue;
+				}
 			}
 			else
 			{
@@ -222,12 +227,13 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 
 	if ( step == ( max_step + 1 ) )
 	{
-		msg->isValid = 1u;
+		msg->error = 0u;
 
 		uint16_t calculatedCRC = crc( msg );
+
 		if ( calculatedCRC != msg->crc )
 		{
-			msg->isValid = 0u;
+			msg->error = CRC_ERROR;
 		}
 	}
 }
@@ -236,7 +242,7 @@ void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size )
 {
 	if (msg != (tCAN_msg*)0)
 	{
-		if (msg->isValid)
+		if (msg->error == 0u)
 		{
 			uint8_t step = 0u;
 			uint8_t consecutiveBitCount = 1u;
@@ -453,39 +459,26 @@ uint16_t crc( tCAN_msg* msg )
 	if ( (tCAN_msg*)0 != msg )
 	{
 		uint8_t i = 0u;
-		uint8_t oct10_ID = 0u;
-		uint8_t oct9_ID = 0u;
-		uint8_t oct8_ID = 0u;
 		uint8_t oct10 = 0u;
 		uint8_t oct9 = 0u;
 		uint8_t oct8 = 0u;
-		uint8_t oct7 = 0u;
-		uint8_t oct6 = 0u;
-		uint8_t oct5 = 0u;
-		uint8_t oct4 = 0u;
-		uint8_t oct3 = 0u;
-		uint8_t oct2 = 0u;
-		uint8_t oct1 = 0u;
-		uint8_t oct0 = 0u;
+		uint8_t oct7 = msg->data[7];
+		uint8_t oct6 = msg->data[6];
+		uint8_t oct5 = msg->data[5];
+		uint8_t oct4 = msg->data[4];
+		uint8_t oct3 = msg->data[3];
+		uint8_t oct2 = msg->data[2];
+		uint8_t oct1 = msg->data[1];
+		uint8_t oct0 = msg->data[0];
 
-		oct0 = msg->data[0];
-		oct1 = msg->data[1];
-		oct2 = msg->data[2];
-		oct3 = msg->data[3];
-		oct4 = msg->data[4];
-		oct5 = msg->data[5];
-		oct6 = msg->data[6];
-		oct7 = msg->data[7];
-		oct8_ID = 0b01u & msg->ID;
-		oct8 |= oct8_ID << 1;
+		oct8 = 0b01u & msg->ID;
+		oct8 = oct8 << 1;
 		oct8 |= msg->RTR;
 		oct8 = oct8 << 6u;
 		oct8 |= msg->dataLength;
 
-		oct9_ID = (0b00111111110 & msg->ID) >> 1;
-		oct9 = oct9_ID;
-		oct10_ID = (0b11000000000 & msg->ID) >> 9;
-		oct10 = oct10_ID;
+		oct9 = (0b00111111110u & msg->ID) >> 1;
+		oct10 = (0b11000000000u & msg->ID) >> 9;
 
 		uint8_t data[ 11u ] = { oct10, oct9, oct8, oct7, oct6, oct5, oct4, oct3, oct2, oct1, oct0 };
 
@@ -513,7 +506,7 @@ uint16_t can_crc_next( uint16_t crc, uint8_t data )
 
 			if ( 0u != ( crcReturn & 0x8000u ) )
 			{
-				crcReturn ^= 0xc599u;
+				crcReturn ^= 0x4599u;
 			}
 		}
 	}

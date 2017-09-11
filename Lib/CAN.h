@@ -3,6 +3,10 @@
 #define max_step 8
 #define RECESSIVE	( (uint8_t) 1u )
 #define DOMINANT	( (uint8_t) 0u )
+#define BIT_STUFFING_ERROR ( (uint8_t) 1u )
+#define CRC_ERROR ( (uint8_t) 2u )
+#define LENGTH_ERROR ( (uint8_t) 3u )
+
 
 typedef struct {
 	uint16_t ID			: 11;
@@ -10,7 +14,7 @@ typedef struct {
 	uint8_t dataLength	: 4;
 	uint8_t data[ 8u ];
 	uint16_t crc        : 15;
-	uint8_t isValid		: 1;
+	uint8_t error		: 2;
 }tCAN_msg;
 
 
