@@ -128,7 +128,12 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 					{
 						dataIndex = msg->dataLength - 1u;
 
-						step++;
+						if (msg->dataLength == 0u) {
+							step += 2;
+						}
+						else {
+							step++;
+						}
 					}
 				}
 

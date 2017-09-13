@@ -18,3 +18,12 @@ itsplc_freertos/ITSPLC_FreeRTOS.elf.xcodeproj/project.pbxproj
 itsplc_freertos/Debug/obj/history.xml
 itsplc_freertos/Debug/obj/history.xml
 itsplc_freertos/Debug/obj/dependencies.xml
+*.bin
+*.elf
+*.hex
+*.map
+*.xml
+*.xml
+*.map
+*.hex
+itsplc_freertos/Debug/bin/ITSPLC_FreeRTOS.elf

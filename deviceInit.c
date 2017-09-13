@@ -21,6 +21,12 @@ void InitTransceiverRX( void )
 	GPIO_InitStruct.GPIO_PuPd	= GPIO_PuPd_NOPULL; // this sets the pullup / pulldown resistors to be inactive
 	GPIO_Init( GPIOA, &GPIO_InitStruct );
 
+	GPIO_InitStruct.GPIO_Pin	= GPIO_Pin_3;
+	GPIO_InitStruct.GPIO_Mode	= GPIO_Mode_OUT; 	// we want the pins to be an output
+	GPIO_InitStruct.GPIO_Speed	= GPIO_Speed_50MHz; // this sets the GPIO modules clock speed
+	GPIO_InitStruct.GPIO_PuPd	= GPIO_PuPd_NOPULL; // this sets the pullup / pulldown resistors to be inactive
+	GPIO_Init( GPIOA, &GPIO_InitStruct );
+
 	// Connect EXTI5 Line to PA5 pin
 	SYSCFG_EXTILineConfig( EXTI_PortSourceGPIOA, EXTI_PinSource5 );
 
