@@ -128,7 +128,12 @@ void bitToMsg( uint8_t octet[ 17u ], uint8_t size, tCAN_msg* msg )
 					{
 						dataIndex = msg->dataLength - 1u;
 
-						step++;
+						if (msg->dataLength == 0u) {
+							step += 2;
+						}
+						else {
+							step++;
+						}
 					}
 				}
 
@@ -505,26 +510,6 @@ void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size )
 	}
 }
 
-void displayData( uint8_t octet[ 17u ] )
-{
-	uint8_t msg[135];
-	uint8_t index = 0;
-
-	for (uint8_t octetIndex = 0u; octetIndex < 17u; ++octetIndex)
-	{
-		for (uint8_t bitIndex = 7u; bitIndex > 0u; --bitIndex)
-		{
-			msg[index] = getBit(octet[octetIndex], bitIndex) + '0';
-
-			index++;
-		}
-	}
-
-	msg[index] = '\0';
-
-	LCD_DisplayStringLine( 36 , (uint8_t*) msg );
-}
-
 uint16_t crc( tCAN_msg* msg )
 {
 	uint16_t crc = 0u;
@@ -569,18 +554,15 @@ uint16_t can_crc_next( uint16_t crc, uint8_t data )
 	uint8_t i = 0u;
 	uint16_t crcReturn = crc;
 
-	if ( 0u != data )
+	crcReturn ^= (uint16_t)data << 7u;
+
+	for ( i = 0u; i < 8u; i++ )
 	{
-		crcReturn ^= (uint16_t)data << 7u;
+		crcReturn <<= 1u;
 
-		for ( i = 0u; i < 8u; i++ )
+		if ( 0u != ( crcReturn & 0x8000u ) )
 		{
-			crcReturn <<= 1u;
-
-			if ( 0u != ( crcReturn & 0x8000u ) )
-			{
-				crcReturn ^= 0x4599u;
-			}
+			crcReturn ^= 0x4599u;
 		}
 	}
 
