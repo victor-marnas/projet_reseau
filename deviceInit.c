@@ -15,6 +15,12 @@ void InitTransceiverRX( void )
 	GPIO_InitStruct.GPIO_PuPd	= GPIO_PuPd_DOWN; // this sets the pullup / pulldown resistors to be inactive
 	GPIO_Init( GPIOA, &GPIO_InitStruct );
 
+	GPIO_InitStruct.GPIO_Pin	= GPIO_Pin_3;
+	GPIO_InitStruct.GPIO_Mode	= GPIO_Mode_OUT; 	// we want the pins to be an output
+	GPIO_InitStruct.GPIO_Speed	= GPIO_Speed_50MHz; // this sets the GPIO modules clock speed
+	GPIO_InitStruct.GPIO_PuPd	= GPIO_PuPd_NOPULL; // this sets the pullup / pulldown resistors to be inactive
+	GPIO_Init( GPIOA, &GPIO_InitStruct );
+
 	GPIO_InitStruct.GPIO_Pin	= GPIO_Pin_6;
 	GPIO_InitStruct.GPIO_Mode	= GPIO_Mode_OUT; 	// we want the pins to be an output
 	GPIO_InitStruct.GPIO_Speed	= GPIO_Speed_50MHz; // this sets the GPIO modules clock speed
@@ -47,7 +53,7 @@ void InitTimer( void )
 
 	TIM_InitStruct.TIM_Prescaler = 0;
 	TIM_InitStruct.TIM_CounterMode = TIM_CounterMode_Up;
-	TIM_InitStruct.TIM_Period = 419;
+	TIM_InitStruct.TIM_Period = 1679;
 	TIM_InitStruct.TIM_ClockDivision = TIM_CKD_DIV1;
 	TIM_InitStruct.TIM_RepetitionCounter = 0;
 
