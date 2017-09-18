@@ -249,7 +249,7 @@ void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size )
 {
 	if (msg != (tCAN_msg*)0)
 	{
-		if (msg->error == 0u)
+		if (msg->isValid == 1u)
 		{
 			uint8_t step = 0u;
 			uint8_t consecutiveBitCount = 1u;
