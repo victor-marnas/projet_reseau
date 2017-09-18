@@ -244,10 +244,10 @@ void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size )
 {
 	if (msg != (tCAN_msg*)0)
 	{
-		if (msg->error == 0u)
+		if (msg->isValid == 1u)
 		{
 			uint8_t step = 0u;
-			uint8_t consecutiveBitCount = 1u;
+			uint8_t consecutiveBitCount = 0u;
 			uint8_t octetIndex = 0u;
 			uint8_t bitIndex = 7u;
 			uint8_t previousBit = 0u;
@@ -257,11 +257,18 @@ void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size )
 			uint8_t crcIndex = 14u;
 			uint8_t eofIndex = 9u;
 
-			uint8_t dataOctetIndex = msg->dataLength;
+			uint8_t dataOctetIndex = 0u;
+			if ( msg->dataLength > 0u )
+			{
+				dataOctetIndex = msg->dataLength - 1u;
+			}
 			uint8_t dataIndex = 7u;
+
+			*size = 0u;
 
 			while ( step <= 11 ) //maxStep)
 			{
+				( *size ) = ( *size ) + 1u;
 				switch (step)
 				{
 					case 0: // SOT
@@ -280,7 +287,8 @@ void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size )
 						{
 							step++;
 						}
-						else {
+						else
+						{
 							lengthIndex--;
 						}
 
@@ -367,17 +375,23 @@ void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size )
 					{
 						bit = RECESSIVE;
 
+						step++;
+
 						break;
 					}
 					case 9: // ACK
 					{
 						bit = RECESSIVE;
 
+						step++;
+
 						break;
 					}
 					case 10: // Délimiteur
 					{
 						bit = RECESSIVE;
+
+						step++;
 
 						break;
 					}
@@ -397,32 +411,89 @@ void msgToBit( tCAN_msg* msg, uint8_t octet[ 17u ], uint8_t* size )
 					}
 				}
 
-				if ( step <= 7 ) // Ajout bitstuffing avant CRC
+				if ( step <= 7u ) // Ajout bitstuffing avant CRC
 				{
+					/*
 					if (consecutiveBitCount == 5u)
 					{
-						previousBit = (bit == 0u) ? 1u : 0u;
-						octet[octetIndex] += previousBit;
+
+						( *size ) = ( *size ) + 1u;
+						//previousBit = (bit == 0u) ? 1u : 0u;
+						//octet[octetIndex] |= previousBit;
+						previousBit = (previousBit == 0u) ? 1u : 0u;
+						octet[octetIndex] |= (previousBit << bitIndex);
+
+						if (bitIndex == 0u) {
+							bitIndex = 7u;
+							octetIndex++;
+							octet[octetIndex] = 0;
+						}
+						else
+						{
+							bitIndex--;
+						}
 
 						consecutiveBitCount = 1u;
-					}
-
-					if (previousBit == bit)
-					{
-						consecutiveBitCount++;
 					}
 					else
 					{
+						if (previousBit == bit)
+						{
+							consecutiveBitCount++;
+						}
+						else
+						{
+							consecutiveBitCount = 1u;
+						}
+
+						previousBit = bit;
+					}
+*/
+					if (consecutiveBitCount == 5u)
+					{
+						( *size ) = ( *size ) + 1u;
+
+
+						//previousBit = (bit == 0u) ? 1u : 0u;
+						//octet[octetIndex] |= previousBit;
+
+						previousBit = (previousBit == 0u) ? 1u : 0u;
+						octet[octetIndex] |= (previousBit << bitIndex);
+
+						if (bitIndex == 0u) {
+							bitIndex = 7u;
+							octetIndex++;
+							octet[octetIndex] = 0;
+						}
+						else
+						{
+							bitIndex--;
+						}
+
 						consecutiveBitCount = 1u;
 					}
+					else
+					{
+						if (previousBit == bit)
+						{
+							consecutiveBitCount++;
+						}
+						else
+						{
+							consecutiveBitCount = 1u;
+						}
+
+						previousBit = bit;
+					}
+
 				}
 
-				octet[octetIndex] += (bit << bitIndex);
+				octet[octetIndex] |= (bit << bitIndex);
 
 				if (bitIndex == 0)
 				{
 					bitIndex = 7u;
-					octetIndex--;
+					octetIndex++;
 					octet[octetIndex] = 0;
 				}
 				else

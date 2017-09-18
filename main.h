@@ -28,3 +28,6 @@
 xQueueHandle q_rxBits;
 xQueueHandle q_rxMessages;
 xQueueHandle q_txMessages;
+SemaphoreHandle_t xSemTimerSend;
+
+static uint8_t bitsToTransmit[ 20u ] = { 0u };

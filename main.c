@@ -64,13 +64,20 @@ int main( void )
     uiTraceStart();
 	*/
     // Initialize resources management variable
-    q_rxBits = xQueueCreate( 1024, sizeof( uint8_t ) );
-    q_rxMessages = xQueueCreate( 10, sizeof( tCAN_msg ) );
-    q_txMessages = xQueueCreate( 1, sizeof( tCAN_msg ) );
     // user_event_channel = xTraceOpenLabel("UEV");
 
-    xTaskCreate( vTaskTransceiverRX , "Task_Transceiver_RX" , 1024 , NULL , 20 , NULL );
+    // SNIFFER is defined in user_task.h
+#ifdef SNIFFER
+    q_rxBits = xQueueCreate( 1024, sizeof( uint8_t ) );
+	q_rxMessages = xQueueCreate( 10, sizeof( tCAN_msg ) );
     xTaskCreate( vTaskSniffer , "Task_Sniffer" , 128 , NULL , 10 , NULL );
+    xTaskCreate( vTaskTransceiverRX , "Task_Transceiver_RX" , 1024 , NULL , 20 , NULL );
+#else
+    xSemTimerSend = xSemaphoreCreateBinary( );
+    q_txMessages = xQueueCreate( 1, sizeof( uint8_t ) );
+    xTaskCreate( vTaskTransceiverTX , "Task_Transceiver_TX" , 1024 , ( void* )bitsToTransmit , 20 , NULL );
+    xTaskCreate( vTaskInjection , "Task_Fault_Injection" , 1024 , ( void* )bitsToTransmit , 10 , NULL );
+#endif
 
     LCD_DisplayStringLine(12, (uint8_t*) "Init done");
 
@@ -123,6 +130,7 @@ void EXTI9_5_IRQHandler( void )
 
 void TIM2_IRQHandler( void )
 {
+#ifdef SNIFFER
 	if( RESET != TIM_GetITStatus( TIM2, TIM_IT_Update ) )
 	{
 		// Toggle output for timing debug
@@ -149,4 +157,17 @@ void TIM2_IRQHandler( void )
 
 		portEND_SWITCHING_ISR( higherPriorityWoken );
 	}
+#else
+	if( RESET != TIM_GetITStatus( TIM2, TIM_IT_Update ) )
+	{
+		portBASE_TYPE higherPriorityWoken = pdFALSE;
+
+		// Clear interrupt
+		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
+
+		xSemaphoreGiveFromISR( xSemTimerSend, &higherPriorityWoken );
+
+		portEND_SWITCHING_ISR( higherPriorityWoken );
+	}
+#endif
 }
